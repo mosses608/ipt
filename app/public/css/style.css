@@ -1,0 +1,3161 @@
+.container-lg-gx{
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    padding: 6px;
+    width: 60%;
+    height: 520px;
+    border-radius: 4px;
+}
+.container-lg-gx img{
+    float: left;
+    border-radius:6px;
+    width: 49%;
+    height: 510px;
+    cursor: pointer;
+}
+
+.return-back-component{
+    float: right;
+    font-size: 14px;
+}
+
+.atialased-bx-lg{
+    float: right;
+    margin-right: 4%;
+    height: 490px;
+    width: 45%;
+}
+
+.atialased-bx-lg label{
+    float: left;
+}
+.atialased-bx-lg h1{
+    font-weight: 400;
+    font-size: 25px;
+}
+
+.atialased-bx-lg p a{
+    color:#0000FF;
+    padding: 4px;
+}
+
+.atialased-bx-lg p a:hover{
+    text-decoration: underline;
+}
+
+.atialased-bx-lg input{
+    width: 98%;
+    border-radius:5px;
+    margin-top: 2%;
+    border:1px solid #000000;
+    padding: 14px;
+}
+
+.atialased-bx-lg button{
+    padding: 10px;
+    width: 120px;
+    background-color: #007bFF;
+    color:#FFFFFF;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: 10px;
+    cursor: pointer;
+    float: left;
+}
+.reset-lg-ajax{
+    float: right;
+    color:#0000FF;
+}
+
+.reset-lg-ajax:hover{
+    text-decoration: underline;
+}
+.remember-ajax-component{
+    float: left;
+}
+.remember-ajax-component input{
+    width: 14px;
+}
+
+*{
+    box-sizing: border-box;
+    padding: 0%;
+    margin: 0%;
+}
+
+header{
+    position: fixed;
+    width: 100%;
+    top: 0%;
+    padding: 16px;
+    background-color: rgb(135, 163, 224);
+}
+.image-profile-logo img{
+    width: 100%;
+    height: 140px;
+    border-radius:10px;
+}
+
+.image-profile-logo{
+    float: left;
+    width: 180px;
+    position: fixed;
+    top: 1%;
+    left: 2%;
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    height: 140px;
+}
+header h1{
+    margin-left: 20%;
+    color:#FFFFFF;
+    display: inline;
+    font-weight: 400;
+    font-size: 25px;
+}
+header h1 span{
+    float: right;color:#FFFFFF
+}
+.collapse-side-menu{
+    cursor: pointer;
+}
+
+@keyframes fromRight{
+    from{
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0%);
+    }
+}
+
+
+.hidden-admin-file{
+    float: right;
+    border-radius: 5px;
+    padding: 10px;
+    width: 120px;
+    display: none;
+    position:fixed;
+    background-color: #111;
+    top: 12.5%;
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    right: 0.5%;
+    animation: fromRight 2s forwards;
+}
+.hidden-admin-file a{
+    display: block;
+    color:#FFFFFF;
+    font-size: 14px;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+}
+.hidden-admin-file a:hover{
+    background-color: #ddd;
+    color: #000;
+    padding: 10px;
+    width: 100%;
+}
+.hidden-admin-file button{
+    color:#FFFFFF;
+    text-align: center;
+    width: 100%;
+}
+.hidden-admin-file button{
+    padding: 6px;
+    background-color: inherit;
+    color:#FFFFFF;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align:center;
+}
+.hidden-admin-file button:hover{
+    width: 100%;
+    color: orange;
+    cursor: pointer;
+}
+
+
+@keyframes slideInRight{
+    from {
+        transform: translateX(100%);
+    }
+    to{
+        transform: translateX(0);
+    }
+}
+
+.profile-header{
+    font-size: 20px;
+    font-weight: 400;
+    padding: 10px;
+    cursor: pointer;
+}
+.login-success-message{
+    padding: 10px;
+    float: right;
+    margin-right: 1%;
+    animation: slideInRight 2s forwards;
+    border-radius:5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+}
+.login-success-message p{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color:#000000;
+}
+
+/* SIDE MENU STYLING */
+.side-menu-container{
+    background-color: #333238;
+    width: 20%;
+    position: absolute;
+    left: 0%;
+    top: 12.8%;
+    height: 1800px;
+}
+
+.side-menu-container a{
+    display: block;
+    padding: 12px;
+    color:#FFFFFF;
+    font-size: 16px;
+}
+.side-menu-container em{
+    font-style: normal;
+}
+
+@keyframes slideFromTop {
+    from {
+        opacity: 0;
+        transform: translateY(0%);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(1%);
+    }
+}
+
+
+.firm-mgt-container{
+    display: none;
+}
+
+.firm-mgt-container a{
+    text-align: center;
+}
+
+.uni-staff-container-holder{
+    display: none;
+    background-color: #444;
+}
+.uni-staff-container-holder a{
+    text-align: center;
+}
+
+.ajax-student-container{
+    display: none;
+    background-color: #444;
+}
+.ajax-student-container a{
+    text-align: center;
+}
+
+.ajax-course-mgt{
+    display: none;
+    background-color: #444;
+}
+.ajax-course-mgt a{
+    text-align: center;
+}
+
+.ajax-depart-lx-bx{
+    display: none;
+    background-color: #444;
+}
+.ajax-depart-lx-bx a{
+    text-align: center;
+}
+
+.ajax-lg-bx{
+    display: none;
+    background-color:#444;
+}
+.ajax-lg-bx a{
+    text-align:center;
+}
+.ajax{
+    margin-left: 10%;
+}
+
+.side-menu-container a:hover{
+    background-color: #ddd;
+    color:#000;
+    padding: 12px;
+}
+
+@keyframes slowMotion{
+    from{
+        width: 18%;
+    }
+    to{
+        width: 10%;
+    }
+}
+
+@keyframes slowImage{
+    from{
+        height: 140px;
+        width: 180px;
+    }
+    to{
+        height: 50px;
+        width: 100px;
+    }
+}
+
+@keyframes slowClass{
+    from{
+        margin-left: 20%;
+    }
+    to{
+        margin-left: 10%;
+    }
+}
+
+.side-menu-container button{
+    cursor: pointer;
+    padding: 10px;
+    font-size: 16px;
+    float: left;
+    background-color: inherit;
+}
+.active{
+    animation: slideFromTop 2s forwards;
+    display: block;
+}
+
+/* CENTER DATA HERE */
+.container-centered-ajax{
+    margin-top: 1%;
+    margin-left: 22%;
+    width: 70%;
+}
+
+.student-report-db,.staff-report-db{
+    background-color:#3b70a5;
+    padding: 10px;
+    border-radius:10px;
+    cursor: pointer;
+    width:180px;
+    height: 160px;
+    margin-left: 4%;
+    color:#FFFFFF;
+    box-shadow:0 0 10px rgba(0,0,0,0.4);
+    float: left;
+    margin-top: 4%;
+}
+.container-centered-ajax div:hover{
+    background-color:#45bb78;
+}
+
+.container-centered-ajax h2{
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.group-analytics-data{
+    margin-top: 30%;
+    margin-left: 20%;
+    padding: 10px;
+    width: 75%;
+    border-radius:4px;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    float: none;
+}
+
+/* COLLEGE PRINCIPAL */
+.container-component-ajax{
+    margin-top: -1%;
+    margin-left: 20%;
+    width: 79.7%;
+    box-shadow:0 0 10px rgba(0,0,0,0.4);
+    border-radius:6px;
+    padding: 10px;
+    height: 600px;
+}
+
+.container-component-ajax-lx p{
+    text-align: center;
+}
+
+.container-component-ajax-lxg{
+    width: 79.7%;
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    margin-top: 0.5%;
+    margin-left: 20%;
+}
+
+
+.container-component-ajax-lx{
+    margin-top: 1%;
+    margin-left: 20%;
+    width: 79%;
+    box-shadow:0 0 10px rgba(0,0,0,0.4);
+    border-radius:6px;
+    padding: 10px;
+    height: 330px;
+}
+
+.container-component-ajax input,select{
+    width: 100%;
+    padding: 16px;
+    border-radius:6px;
+    border:1px solid #000;
+}
+
+.container-component-ajax p{
+    font-size: 20px;
+    text-transform: uppercase;
+    padding: 10px;
+}
+
+.container-component-ajax-lg p{
+    text-transform: uppercase;
+}
+
+.container-component-ajax-lg{
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    margin-left: 20%;
+    padding: 10px;
+    width: 79.7%;
+    margin-top: -1%;
+    height: 330px;
+}
+
+.left-panel-01{
+    float: left;
+    width: 49%;
+}
+.left-panel-01 input{
+    width: 100%;
+    border: 1px solid #000;
+    padding: 14px;
+    border-radius: 6px;
+}
+
+.left-panel-01 select{
+    width: 100%;
+    border: 1px solid #000;
+    padding: 14px;
+    border-radius: 6px;
+}
+
+.left-panel-01 label{
+    float: left;
+}
+
+.right-panel-01{
+    float: right;
+    width: 49%;
+}
+.right-panel-01 input{
+    width: 100%;
+    border: 1px solid #000;
+    padding: 14px;
+    border-radius: 6px;
+}
+.right-panel-01 select{
+    width: 100%;
+    border: 1px solid #000;
+    padding: 14px;
+    border-radius: 6px;
+}
+
+.right-panel-01-button{
+    width: 120px;
+    background-color: #007BFF;
+    border-radius: 6px;
+    color: #FFFFFF;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.left-panel{
+    width: 49%;
+    float: left;
+}
+.left-panel select{
+    width: 100%;
+    padding: 16px;
+    border-radius:6px;
+    border:1px solid #000;
+}
+
+.left-panel input{
+    width: 100%;
+    padding: 16px;
+    border-radius:6px;
+    border:1px solid #000;
+}
+
+.left-panel label{
+    float: left;
+}
+
+.right-panel{
+    width: 49%;
+    float: right;
+}
+.right-panel select{
+    width: 100%;
+    padding: 16px;
+    border-radius:6px;
+    border:1px solid #000;
+}
+.right-panel input{
+    width: 100%;
+    padding: 16px;
+    border-radius:6px;
+    border:1px solid #000;
+}
+.right-panel label{
+    float: left;
+}
+.right-panel button{
+    float: left;
+    background-color:green;
+    padding: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    cursor: pointer;
+    width: 120px;
+    float: right;
+    color:#FFFFFF;
+    border-radius:10px;
+}
+
+
+
+/* COLLEGE SESSION */
+.ajax-container-former{
+    position: absolute;
+    top: 1%;
+    right: 1%;
+    background-color: orange;
+    padding: 10px;
+    border-radius: 4px;
+}
+.ajax-container-former p{
+    color: #000;
+}
+
+/* VIEW COLLEGES PROGRAMMES */
+.view-college-prorammes-container{
+    margin-left: 20%;
+    margin-top: 2%;
+    border-radius: 4px;
+    padding: 10px;
+    width: 75%;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.view-college-prorammes-container h2{
+    font-weight: 500;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.view-college-prorammes-container table{
+    width: 100%;
+}
+.view-college-prorammes-container table th{
+    padding: 5px;
+    font-size: 15px;
+    border: 1px solid #000;
+    font-weight: 500;
+    text-align: center;
+}
+
+.view-college-prorammes-container table td{
+    text-align: center;
+    font-size: 12px;
+    padding: 5px;
+    border: 1px solid #000;
+}
+
+/*EDIT FOMR TABLE BUTTON */
+
+.go-ahed-link{
+    cursor: pointer;
+    color: #0000FF;
+}
+.go-ahed-link a{
+    text-decoration: underline;
+}
+
+.go-delete:hover{
+    color: red;
+}
+.go-edit:hover{
+    color: green;
+}
+
+.go-edit,.go-delete{
+    cursor: pointer;
+    color: #000;
+}
+
+/*POPUP AFTER DELETE COLLEGE */
+.ajax-container-message{
+    position:  fixed;
+    left: 45%;
+    top: 10%;
+    background-color: orange;
+    border-radius: 5px;
+    padding: 10px;
+}
+.ajax-container-message p{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    font-size: 14px;
+    color: #FFFFFF;
+}
+
+/* PAGINATION LINKS */
+.paginate-link-complexer{
+    margin-left: 25%;
+}
+.paginate-link-complexer a,span{
+    padding: 10px;
+    color: #000;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-transform: uppercase;
+}
+.paginate-link-complexer p{
+    color: #000;
+}
+
+.paginate-link-complexer a{
+    text-decoration: underline;
+    border-radius: 5px;
+    color: blue;
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+}
+
+@keyframes FdeInSlide{
+    from{
+        transform: translateX(100%);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+
+
+
+/* UPDATE COLLEGE DATA FORM */
+.edit-added-college-ajax{
+    position: absolute;
+    display: none;
+    left: 40%;
+    animation: FdeInSlide 3s forwards;
+    width: 30%;
+    top: 16%;
+    background-color: #666;
+    color: #FFFFFF;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+}
+.edit-added-college-ajax input{
+    width: 100%;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+.edit-added-college-ajax label{
+    float: left;
+}
+
+.edit-added-college-ajax button{
+    float: left;
+    padding: 6px;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 120px;
+    color: #FFFFFF;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.edit-added-college-ajax p{
+    text-transform: uppercase;
+    float: left;
+}
+
+/*ADMIN PROFILE IMAGE*/
+
+.admin-profile-cont{
+    color:#FFFFFF;
+    margin-right: 2%;
+    font-size: 14px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 200;
+    color: yellow;
+}
+
+
+.admin-profile-cont img{
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+    margin-top: 2%;
+    border: 1px solid #000;
+}
+
+.admin-profile-cont span{
+    font-weight: 500;
+}
+
+/* ADMIN PROFILE SETOUT */
+
+.min-object-cont{
+    float: left;
+    margin-left: 1%;
+}
+
+.left-container-block-side{
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    width: 40%;
+    padding: 20px;
+    float: left;
+    margin-left: 1%;
+}
+.left-container-block-side img{
+    width: 120px;
+    height: 120px;
+    border-radius: 60px;
+}
+.left-side-pane{
+    height: 810px;
+    width: 80%;
+    margin-left: 20%;
+    background-color: #ecedee;
+}
+
+.right-side-container-panne{
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    width: 50%;
+    float: left;
+    padding: 20px;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    margin-left: 1%;
+}
+.right-side-container-panne img{
+    width: 50px;
+    float: left;
+    height: 50px;
+    border: 1px solid #000;
+    border-radius: 25px;
+}
+
+.right-side-container-panne a{
+    padding: 30px;
+}
+
+.edit-all-profile-doc{
+    display: block;
+    opacity: 1;
+}
+
+.edit-all-profile-doc label{
+    float: left;
+}
+
+.edit-all-profile-doc input{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #000;
+    border-radius: 10px;
+}
+
+.edit-all-profile-doc button{
+    width: 120px;
+    padding: 10px;
+    border-radius: 10px;
+    color: #FFFFFF;
+    background-color: #007BFF;
+    float: left;
+    cursor: pointer;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.edit-profile{
+    text-decoration: none;
+    color: blue;
+}
+
+
+.change-admin-pass{
+    display: none;
+}
+
+.change-admin-pass label{
+    float: left;
+}
+
+.change-admin-pass button{
+    padding: 10px;
+    background-color: #007BFF;
+    width: 120px;
+    cursor: pointer;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #FFFFFF;
+    float: left;
+    border-radius: 10px;
+}
+
+.change-admin-pass input{
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #000;
+}
+
+.programmes-ajax-card p{
+    text-transform: uppercase;
+    padding: 10px;
+}
+
+.programmes-ajax-card{
+    margin-top: 1%;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    height: 260px;
+    margin-left: 20%;
+    width: 78%;
+}
+
+.right-menus-class{
+    float: right;
+    width: 48%;
+}
+
+.left-menus-class{
+    width: 48%;
+    float: left;
+}
+.right-menus-class button{
+    padding: 10px;
+    color: #FFFFFF;
+    background-color: green;
+    border-radius: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border: none;
+    cursor: pointer;
+    width: 120px;
+}
+
+.right-menus-class select{
+    padding: 16px;
+    border-radius: 10px;
+    width: 100%;
+}
+
+.right-menus-class input{
+    padding: 16px;
+    width: 100%;
+}
+
+.left-menus-class label{
+    float: left;
+}
+
+.left-menus-class select{
+    width: 100%;
+    padding: 16px;
+    border-radius: 10px;
+    border: 1px solid #000;
+}
+
+.left-menus-class input{
+    width: 100%;
+    padding: 16px;
+    border-radius: 10px;
+    border: 1px solid #000;
+}
+
+.ajax-lg-bx-sudent-comp{
+    margin-left: 20%;
+    padding: 10px;
+    width: 78%;
+    border-radius: 5px;
+    height: 550px;
+    margin-top: 1%;
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+}
+.ajax-lg-bx-sudent-comp p{
+    text-transform: uppercase;
+    padding: 10px;
+}
+
+.left-side-panel{
+    float: left;
+    width: 48%;
+}
+
+.left-side-panel label{
+    float: left;
+}
+
+.left-side-panel select{
+    width: 100%;
+    padding: 16px;
+    border-radius: 10px;
+    border: 1px solid #000;
+}
+
+.left-side-panel input{
+    width: 100%;
+    padding: 16px;
+    border-radius: 10px;
+    border: 1px solid #000;
+}
+
+.right-side-panel{
+    float: right;
+    width: 48%;
+}
+
+.right-side-panel select{
+    width: 100%;
+    padding: 16px;
+    border: 1px solid #000;
+    border-radius: 10px;
+}
+
+.right-side-panel input{
+    width: 100%;
+    padding: 16px;
+    border: 1px solid #000;
+    border-radius: 10px;
+}
+
+.right-side-panel button{
+    padding: 10px;
+    background-color: #007BFF;
+    color: #FFFFFF;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    width: 120px;
+}
+
+
+.container-student-ajax{
+    width: 79%;
+    margin-top: 1%;
+    padding: 5px;
+    border-radius: 5px;
+    margin-left: 20%;
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+}
+.container-student-ajax table{
+    width: 100%;
+}
+
+.container-student-ajax table img{
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.container-student-ajax th{
+    font-weight: 400;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px;
+    border-bottom: 2px solid #000;
+    text-align: center;
+}
+.container-student-ajax table td{
+    font-size: 12px;
+    padding: 8px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.container-student-ajax table tr:hover{
+    border-radius: 6px;
+    box-shadow: 0 0 4px rgba(0,0,0,0.2);
+}
+
+
+/* SEARCH SINGLE STUDENT COMPONENT */
+.search-single-lg{
+    position: fixed;
+    top: 3.7%;
+    right: 25%;
+}
+.search-single-lg input{
+    width: 250px;
+    border-radius: 10px;
+    border: 1px solid #000;
+    padding: 6px;
+}
+
+.search-single-lg button{
+    padding: 6px;
+    background-color: inherit;
+    cursor: pointer;
+}
+
+/* STAFF DEPARTMENT REG */
+.flex-ajax-lx-bg{
+    margin-left: 20%;
+    width: 79%;
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    margin-top: 1%;
+    border-radius: 5px;
+    padding: 10px;
+    height: 520px;
+}
+.flex-ajax-lx-bg p{
+    text-transform: uppercase;
+}
+
+.left-staff-field{
+    float: left;
+    width: 48%;
+}
+
+.left-staff-field label{
+    float: left;
+}
+
+.left-staff-field select{
+    width: 100%;
+    padding: 16px;
+    border-radius: 10px;
+    border:1px solid #000;
+}
+
+.left-staff-field input{
+    width: 100%;
+    padding: 16px;
+    border-radius: 10px;
+    border:1px solid #000;
+}
+
+.right-staff-field{
+    float: right;
+    width: 48%;
+}
+
+.right-staff-field select{
+    width: 100%;
+    padding: 16px;
+    border-radius: 10px;
+    border:1px solid #000;
+}
+
+.right-staff-field input{
+    width: 100%;
+    padding: 16px;
+    border-radius: 10px;
+    border:1px solid #000;
+}
+
+.right-staff-field button{
+    padding: 10px;
+    background-color: #007BFF;
+    width: 120px;
+    border: none;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: 5px;
+}
+
+/* FIRM SIDE STYLE */
+.firm-hr-reg-lx{
+    margin-left: 20%;
+    margin-top: 1%;
+    border-radius: 5px;
+    height: 380px;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    width: 79%;
+}
+.firm-hr-reg-lx p{
+    text-transform: uppercase;
+}
+
+.left-hr-side-pane{
+    float: left;
+    width: 48%;
+}
+.left-hr-side-pane input{
+    width: 100%;
+    padding: 16px;
+    border-radius: 10px;
+    border:1px solid #000;
+}
+.left-hr-side-pane label{
+    float: left;
+}
+
+.right-hr-side-pane{
+    float: right;
+    width: 48%;
+}
+.right-hr-side-pane input{
+    width: 100%;
+    padding: 16px;
+    border-radius: 10px;
+    border:1px solid #000;
+}
+
+.right-hr-side-pane button{
+    width: 120px;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    color: #FFFFFF;
+    background-color: #007BFF;
+    cursor: pointer;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.firm-register-form{
+    margin-left: 20%;
+    width: 79%;
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    border-radius: 5px;
+    margin-top: 1%;
+    height: 340px;
+    padding: 10p;
+}
+
+.firm-register-form p{
+    text-transform: uppercase;
+    padding: 10px;
+}
+
+.left-side-firm{
+    float: left;
+    width: 48%;
+    padding: 5px;
+}
+
+.left-side-firm input,select{
+    width: 98%;
+    padding: 16px;
+    border-radius: 10px;
+    border:1px solid #000;
+}
+.left-side-firm label{
+    float: left;
+}
+
+.right-side-firm{
+    float: right;
+    padding: 5px;
+    width: 48%;
+}
+
+.right-side-firm select{
+    width: 98%;
+    padding: 16px;
+    border-radius: 10px;
+    border:1px solid #000;
+}
+
+.right-side-firm input{
+    width: 98%;
+    padding: 16px;
+    border-radius: 10px;
+    border:1px solid #000;
+}
+
+.right-side-firm button{
+    padding: 14px;
+    border-radius: 10px;
+    color: #FFFFFF;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    cursor: pointer;
+    width: 120px;
+    border: none;
+    background-color: #007BFF;
+}
+
+.firm-trainer-component-ajax{
+    margin-left: 20%;
+    padding: 10px;
+    width: 79%;
+    margin-top: 1%;
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    border-radius: 5px;
+    height: 480px;
+}
+
+.firm-trainer-component-ajax p{
+    text-transform: uppercase;
+    padding: 10px;
+}
+
+.left-firm-trainer-sub-form{
+    float: left;
+    width: 48%;
+}
+
+.left-firm-trainer-sub-form input{
+    width: 100%;
+    padding: 16px;
+    border: 1px solid #000;
+    border-radius: 10px;
+}
+
+.left-firm-trainer-sub-form select{
+    width: 100%;
+    padding: 16px;
+    border: 1px solid #000;
+    border-radius: 10px;
+}
+
+.left-firm-trainer-sub-form label{
+    float: left;
+}
+
+.righ-firm-trainer-sub-form{
+    float: right;
+    width: 48%;
+}
+
+.righ-firm-trainer-sub-form input{
+    width: 100%;
+    padding: 16px;
+    border: 1px solid #000;
+    border-radius: 10px;
+}
+
+.firm-trainer-component-ajax button{
+    padding: 14px;
+    width: 120px;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    color: #FFFFFF;
+    background-color: #007BFF;
+}
+
+
+.programmes-ajax-card-view{
+    width: 79%;
+    padding: 10px;
+    margin-left: 20%;
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    border-radius: 5px;
+    margin-top: 1%;
+    height: 300px;
+}
+
+.side-view-left{
+    float: left;
+    width: 48%;
+}
+
+.side-view-right{
+    float: right;
+    width: 48%;
+}
+
+.side-view-left label{
+    float: left;
+}
+
+.side-view-left select{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #000;
+    padding: 16px;
+    border-radius: 10px;
+}
+
+.side-view-left input{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #000;
+    padding: 16px;
+    border-radius: 10px;
+}
+.side-view-right select{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #000;
+    padding: 16px;
+    border-radius: 10px;
+}
+.side-view-left input{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #000;
+    padding: 16px;
+    border-radius: 10px;
+}
+
+
+.side-view-right button{
+    padding: 14px;
+    border-radius: 10px;
+    background-color: #007BFF;
+    color: #FFFFFF;
+    width: 120px;
+    cursor: pointer;
+}
+
+.programmes-ajax-card-view p{
+    padding: 10px;
+    text-transform: uppercase;
+}
+
+.message-action-module{
+    position:  fixed;
+    top: 4%;
+    cursor: pointer;
+    right: 22%;
+    color: #FFFFFF;
+    font-size: 20px;
+    background-color: inherit;
+}
+.notification-action-card{
+    position: fixed;
+    top: 4%;
+    cursor: pointer;
+    right: 28%;
+    color: #FFFFFF;
+    font-size: 20px;
+    background-color: inherit;
+}
+
+@keyframes FadeMotion{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+.notification-component-card{
+    position: fixed;
+    right: 20%;
+    top: 12.5%;
+    animation: FadeMotion 2s forwards;
+    cursor: pointer;
+    background-color: #666f75;
+    height: 340px;
+    width: 250px;
+    display: none;
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    border-radius: 4px;
+}
+.notification-component-card a{
+    padding: 5px;
+    color: orange;
+    float: left;
+    font-size: 12px;
+}
+
+.close-button{
+    float: right;
+    color: red;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.single-notification{
+    width: 100%;
+    margin-top: 1%;
+    overflow-y: scroll;
+    padding: 4px;
+}
+
+.single-notification img{
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    float: left;
+    margin-left: 1%;
+}
+.single-notification p{
+    padding: 1px;
+    font-size: 12px;
+    float: left;
+}
+.single-notification span{
+    color: #FFFFFF;
+}
+
+
+
+/*ADMIN REPORT */
+.container-centered-ajax-report{
+    width: 75%;
+    margin-left: 19.5%;
+    float: left;
+    padding: 10px;
+    margin-top: 0.8%;
+    border-radius: 2px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+}
+.container-centered-ajax-report table{
+    width: 100%;
+}
+
+.container-centered-ajax-report table th{
+    font-weight: 500;
+    border-bottom: 2px solid #000;
+    font-size: 15px;
+    padding: 0px;
+}
+
+.container-centered-ajax-report table tr:hover{
+    background-color: #ddd;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+
+.container-centered-ajax-report table td{
+    padding: 6px;
+    text-align: center;
+    font-size: 12px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.control-menu-items{
+    width: 65px;
+    float: right;
+    cursor: pointer;
+    padding: 10px;
+    border-bottom-left-radius: 4px;
+    background-color: #007BFF;
+}
+.control-menu-items button{
+    padding: 10px;
+    width: 100%;
+    font-size: 16px;
+    display: block;
+    background-color: inherit;
+    cursor: pointer;
+    color: #FFFFFF;
+}
+
+.container-class-holder{
+    width: 100%;
+}
+
+/*MESSAGE STYLE */
+
+@keyframes FadeMessage{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+.message-container-parent{
+    animation: FadeMessage 2s forwards;
+    background-color: #111;
+    width: 50%;
+    border-radius: 10px;
+    display: none;
+    box-shadow: 0 0 10px #ddd;
+    position: absolute;
+    left: 34%;
+    top: 15%;
+    cursor: pointer;
+    height: 510px;
+}
+
+.message-child-content-holder{
+    height: 420px;
+    cursor: pointer;
+    border-radius: 10px;
+    overflow-y: scroll;
+    padding: 10px;
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #000;
+    padding: 10px;
+    width: 98%;
+}
+
+.message-sender-class{
+    padding: 10px;
+    margin-top: 1%;
+}
+
+.message-sender-class input{
+    width: 88%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #000;
+}
+.message-sender-class button{
+    padding: 10px;
+    border-radius: 5px;
+    background-color: green;
+    color: #FFFFFF;
+    margin-left: 1%;
+    cursor: pointer;
+    width: 50px;
+}
+.message-sender-class button:hover{
+    color: darkred;
+}
+
+.profile-layout{
+    float: left;
+    padding: 5px;
+}
+.profile-layout img{
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+}
+
+.profile-layout p{
+    font-size: 12px;
+}
+
+.message-sent{
+    float: right;
+    padding: 5px;
+    font-size: 14px;
+    background-color: green;
+    margin-right: 2%;
+    color: #FFFFFF;
+    border-radius: 10px;
+}
+
+
+
+.sub-component-container{
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    height: 100px;
+}
+
+
+
+.hideMessageBody{
+    float: right;
+    background-color: inherit;
+    margin-right: 4%;
+    color: red;
+    font-size: 26px;
+    cursor: pointer;
+}
+
+
+/* STUDENT DASHBOARD STYLE */
+
+.message-container{
+    float: right;
+    margin-right: 0%;
+    padding: 0px;
+}
+
+.message-notification-box{
+    margin-right: 4%;
+    float: left;
+}
+
+.message-container img{
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    float: left;
+}
+
+.message-container p{
+    color: green;
+    cursor: pointer;
+    display: inline;
+
+}
+
+.profile-component{
+    color: #000;
+    float: left;
+    font-size: 16px;
+}
+
+.message-component{
+    position: fixed;
+    top: 4%;
+    cursor: pointer;
+    font-size: 20px;
+    color: green;
+    right: 22%;
+}
+
+/*STUDENT FIELD APPLICATION STYLE*/
+.main-component-application-container{
+    width: 79.5%;
+    border-radius: 5px;
+    margin-top: 0.5%;
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    padding: 10px;
+    margin-left: 20%;
+}
+
+#status-page-p{
+    cursor: pointer;
+    float: left;
+}
+
+.currentYear,.previousYear{
+    color: #000;
+}
+
+.academic-year-status p{
+    width: 100%;
+    border-bottom: 2px solid #000;
+}
+
+.academic-year-status{
+    border-radius: 5px;
+    width: 100%;
+    background-color: #ddd;
+    padding: 10px;
+}
+
+.application-main p{
+    float: left;
+}
+
+.application-main input,select{
+    padding: 6px;
+    width: 130px;
+    border-radius: 4px;
+}
+.important{
+    color: red;
+    font-size: 18px;
+}
+
+.input-set-0{
+    float: left;
+    margin-left: 2%;
+}
+.input-select-00{
+    float: left;
+    margin-left: 5%;
+}
+
+.input-select-000{
+    float: left;
+    margin-left: 5%;
+}
+
+.showHiddenContent{
+    float: left;
+    background-color: orange;
+    padding: 10px;
+    width: 100px;
+    color: #FFFFFF;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    margin-left: 2%;
+}
+.next-show{
+    float: left;
+    background-color: orange;
+    padding: 6px;
+    font-size: 14px;
+    width: 100px;
+    color: #FFFFFF;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    margin-left: 2%;
+}
+
+.hidden-content-item label{
+    float: left;
+    margin-left: 2%;
+}
+.hidden-content-item input{
+    margin-left: 2%;
+    padding: 10px;
+}
+
+.firm-select-container-main table{
+    border: 1px solid #000;
+    width: 100%;
+}
+
+.firm-select-container-main th{
+    text-align: center;
+    text-transform: uppercase;
+    padding: 6px;
+    border: 1px solid #000;
+    font-weight: 400;
+}
+
+.firm-select-container-main td{
+    padding: 6px;
+    border: 1px solid #000;
+    text-align: center;
+    font-size: 14px;
+}
+
+.submit-edi-button{
+    padding: 10px;
+    background-color: orange;
+    color: #FFFFFF;
+    float: right;
+    margin-right: 0%;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/*VACANCY STYLE */
+
+.vacancy-container{
+    width: 100%;
+}
+
+.vacancy-container span{
+    color: red;
+    font-size: 16px;
+}
+
+.firm-vacancy-admin{
+    width: 79%;
+    margin-left: 20%;
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    border-radius: 5px;
+    margin-top: 0.2%;
+}
+
+.vacancy-container p{
+    text-transform: uppercase;
+    padding: 10px;
+}
+
+.left-panel-manual select{
+    width: 200px;
+}
+
+.left-panel-manual{
+    float: left;
+    padding: 10px;
+}
+
+.right-panel-manual{
+    float: right;
+    padding: 10px;
+}
+
+.right-panel-manual select{
+    width: 200px;
+}
+
+@keyframes slideSlowly {
+    from{
+        opacity: 0;
+        transform: translateY(0%);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(5%);
+    }
+}
+
+.gender-component{
+    float: none;
+    display: none;
+    animation: slideSlowly 2s forwards;
+}
+.gender-component input{
+    width: 200px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding: 10px;
+}
+.gender-component em{
+    margin-left: 2%;
+}
+
+.middle-panel-manual{
+    float: left;
+    margin-left: 2%;
+    padding: 10px;
+}
+.middle-panel-manual input{
+    width: 160px;
+    border: 1px solid #000;
+    padding: 6px;
+    border-radius: 5px;
+}
+
+.submit-vacancy{
+    width: 120px;
+    background-color: #007BFF;
+    color: #FFFFFF;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.activate{
+    animation: slideSlowly 2s forwards;
+    display: block;
+}
+
+.valid-content-container{
+    width: 100%;
+    padding: 10px;
+    background-color: #ccc;
+    border-radius: 10px;
+}
+.valid-content-container p{
+    padding: 10px;
+    margin-left: 3%;
+}
+
+.update-application{
+    display: none;
+    animation: slideSlowly 2s forwards;
+}
+
+/*STUDENT DASHBOARD */
+.main-container-on-dashboard{
+    width: 79.8%;
+    padding: 10px;
+    margin-left: 20%;
+    margin-top: 0.5%;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+}
+
+.left-seide-class-p{
+    float: left;
+    margin-left: 1%;
+    font-size: 20px;
+}
+
+.active-academic-yr-sho{
+    background-color: #ddd;
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border-bottom: 2px solid #000;
+}
+.active-academic-yr-sho p{
+    display: inline;
+
+}
+
+.left-profile-less{
+    float: left;
+}
+.left-profile-less img{
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    float: left;
+}
+.left-profile-less p{
+    padding: 10px;
+    float: left;
+}
+.centered-container{
+    float: left;
+    padding: 10px;
+    margin-left: 15%;
+}
+
+.firm-profile-number-count{
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+    float: left;
+    cursor: pointer;
+    margin-left: 10%;
+    background-color: #3b70a5;
+}
+.firm-profile-number-count h1{
+    text-align: center;
+    color: #FFFFFF;
+    font-weight: 400;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+}
+
+.student-profile-number-count{
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+    float: left;
+    margin-left: 10%;
+    cursor: pointer;
+    background-color: #3b70a5;
+}
+.student-profile-number-count h1{
+    text-align: center;
+    font-weight: 400;
+    color: #FFFFFF;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+}
+
+.vacancy-profile-number-count{
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+    cursor: pointer;
+    float: left;
+    margin-left: 10%;
+    background-color: #3b70a5;
+}
+.vacancy-profile-number-count h1{
+    font-weight: 400;
+    color: #FFFFFF;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+}
+
+.head-comp a:hover{
+    text-decoration: underline;
+    color: #0000FF;
+    cursor: pointer;
+}
+
+/*ADD NEW DAILY ACTIVITIES */
+
+.new-element0-dail-add{
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    width: 79.7%;
+    margin-left: 20%;
+    padding: 10px;
+    margin-top: 0.5%;
+    border-radius: 5px;
+}
+
+.add-daily-task-class{
+    display: none;
+    animation: slideSlowly 3s forwards;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    width: 70%;
+    padding: 10px;
+}
+
+.head-comp{
+    float: left;
+}
+
+.load-items-hidden{
+    float: left;
+    background-color: orange;
+    padding: 10px;
+    width: 120px;
+    color: #FFFFFF;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.display-content-button{
+    float: right;
+    background-color: orange;
+    padding: 10px;
+    width: 120px;
+    color: #FFFFFF;
+    border-radius: 10px;
+    margin-right: 0%;
+    cursor: pointer;
+
+}
+
+.input-select-01 span{
+    color: red;
+}
+.inp-select-0 span{
+    color: red;
+}
+
+.inp-select-0{
+    float: left;
+}
+.input-select-01{
+    float: right;
+}
+
+.single-activity-class{
+    float: left;
+    width: 100%;
+}
+.single-activity-class label{
+    float: left;
+    padding: 6px;
+}
+.single-activity-class input{
+    width: 300px;
+    border: 1px solid #000;
+    float: right;
+    border-radius: 6px;
+    padding: 6px;
+}
+
+.submit-acivity-button{
+    float: left;
+    display: none;
+    margin-top: 2%;
+    border: none;
+    background-color: #007BFF;
+    padding: 8px;
+    cursor: pointer;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: 4px;
+    color: #FFFFFF;
+}
+
+.double-activity-class{
+    float: left;
+    width: 100%;
+}
+.double-activity-class input{
+    float: right;
+    padding: 6px;
+    width: 300px;
+    border-radius: 6px;
+    border:1px solid #000;
+}
+.double-activity-class label{
+    float: left;
+}
+
+.tripple-activity-class{
+    float: left;
+    width: 100%;
+}
+
+.tripple-activity-class label{
+    float: left;
+}
+
+.tripple-activity-class input{
+    float: right;
+    padding: 6px;
+    width: 300px;
+    border-radius: 6px;
+    border:1px solid #000;
+}
+
+.multiple-activity-class{
+    float: left;
+    width: 100%;
+}
+
+.multiple-activity-class label{
+    float: left;
+}
+
+.multiple-activity-class input{
+    float: right;
+    padding: 6px;
+    width: 300px;
+    border-radius: 6px;
+    border:1px solid #000;
+}
+
+.attachment-activity-class{
+    width: 100%;
+    display: none;
+}
+
+.attachment-activity-class label{
+    float: left;
+}
+
+.attachment-activity-class input{
+    float: right;
+    padding: 6px;
+    width: 300px;
+    border-radius: 6px;
+    border:1px solid #000;
+}
+
+.view-daily-activities-class-container{
+    display: none;
+    width: 100%;
+}
+.view-daily-activities-class-container table{
+    width: 100%;
+}
+
+.view-daily-activities-class-container table img{
+    width: 80px;
+    cursor: pointer;
+    height: 80px;
+}
+.view-daily-activities-class-container th{
+    border: 1px solid #000;
+    padding: 6px;
+    font-weight: 400;
+    text-align: center;
+}
+.view-daily-activities-class-container td{
+    text-align: center;
+    font-size: 14px;
+    border: 1px solid #000;
+}
+
+/* WEEKLY SUMMARY */
+.weekly_summary-container{
+    width: 79.7%;
+    padding: 10px;
+    margin-left: 20%;
+    margin-top: 0.5%;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+}
+
+.sub-head{
+    float: left;
+    margin-left: 1%;
+}
+
+.sub-head a:hover{
+    color: #0000FF;
+    text-decoration: underline;
+}
+
+.writable-summary-form{
+    display: none;
+    width: 100%;
+}
+
+.writable-summary-form textarea{
+    width: 100%;
+    height: 350px;
+    border: 2px solid #444;
+    padding: 10px;
+    border-radius: 4px;
+}
+.writable-summary-form button{
+    float: right;
+    padding: 10px;
+    background-color: orange;
+    cursor: pointer;
+    color: #FFFFFF;
+    border-radius: 4px;
+    width: 200px;
+}
+
+/*FIELD REPORT */
+.field-report-body{
+    width: 79.7%;
+    padding: 10px;
+    margin-left: 20%;
+    margin-top: 0.5%;
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    border-radius: 4px;
+}
+
+.upload-field-report-final{
+    display: none;
+    width: 100%;
+}
+
+.upload-field-report-final label{
+    float: left;
+}
+
+.upload-field-report-final input{
+    width: 100%;
+    padding: 10px;
+    border: 0.2px solid #888;
+    border-radius: 10px;
+}
+.upload-report{
+    float: left;
+    background-color: orange;
+    width: 150px;
+    border-radius: 10px;
+    color: #FFFFFF;
+    cursor: pointer;
+    padding: 10px;
+}
+
+/*STUDENT FEEDBACKS REPORT */
+.feedbacks-class-container{
+    width: 79.7%;
+    margin-left: 20%;
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    margin-top: 0.5%;
+}
+
+.send-feedbacks-feed{
+    width: 100%;
+    display: none;
+    padding: 10px;
+}
+.send-feedbacks-feed label{
+    float: left;
+}
+.send-feedbacks-feed textarea{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #000;
+    border-radius: 4px;
+}
+
+.send-ffedbacks{
+    float: left;
+    background-color: orange;
+    color: #FFFFFF;
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+/*IPT COORDINATOR */
+.ipt-coordinator{
+    width: 79.7%;
+    padding: 10px;
+    margin-left: 20%;
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    border-radius: 4px;
+    margin-top: 0.5%;
+    height: 440px;
+}
+
+.head-sub-head{
+    float: left;
+}
+
+.left-ipt-coordi{
+    float: left;
+    width: 48%;
+}
+.left-ipt-coordi label{
+    float: left;
+}
+
+.left-ipt-coordi select{
+    width: 100%;
+    padding: 10px;
+}
+
+.left-ipt-coordi input{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #000;
+    border-radius: 4px;
+}
+
+.right-ipt-coordi{
+    float: right;
+    width: 48%;
+}
+
+.right-ipt-coordi input{
+    width: 100%;
+    border: 1px solid #000;
+    padding: 10px;
+    border-radius: 4px;
+}
+.right-ipt-coordi select{
+    width: 100%;
+    padding: 10px;
+}
+
+.submit-ipt{
+    width: 120px;
+    background-color: #007BFF;
+    color: #FFFFFF;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.ipt-coordintor-dashboard-class{
+    width: 79.7%;
+    padding: 10px;
+    margin-left: 20%;
+    margin-top: 0.3%;
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    border-radius: 4px;
+}
+.ipt-parag{
+    float: left;
+}
+
+.load-data-student-list table{
+    width: 100%;
+}
+.load-data-student-list th{
+    text-align: center;
+    padding: 10px;
+    cursor: pointer;
+    cursor: pointer;
+    font-weight: 400;
+    border-bottom:  2px solid #000;
+}
+.load-data-student-list td{
+    text-align: center;
+    cursor: pointer;
+    font-size: 15px;
+    padding: 10px;
+    border-bottom: 1px solid #000;
+}
+
+
+.load-data-student-list table a{
+    color: #0000FF;
+}
+
+.load-data-student-list table button{
+    width: 140px;
+    padding: 6px;
+    background-color: green;
+    color: #FFFFFF;
+    margin-top: 1%;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+@keyframes MyFadeForm {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+
+}
+
+.assign-person-container{
+    position: absolute;
+    left: 40%;
+    animation: MyFadeForm 2s ease-in;
+    padding: 12px;
+    border-radius: 10px;
+    display: none;
+    width: 30%;
+    top: 40%;
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+}
+
+.assign-act-button{
+    width: 150px;
+    border-radius: 4px;
+    background-color: #007BFF;
+    color: #FFFFFF;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.view-daily-tasks{
+    position: absolute;
+    left: 30%;
+    display: none;
+    animation: MyFadeForm 2s ease-in;
+    border: 1px solid #000;
+    border-radius: 10px;
+    height: 240px;
+    padding: 10px;
+    width: 60%;
+    top: 30%;
+}
+
+.view-daily-tasks img{
+    width: 300px;
+    height: 160px;
+    border-radius: 4px;
+}
+
+.view-weekly-summary-class-con{
+    position: absolute;
+    left: 25%;
+    display: none;
+    animation: MyFadeForm 2s ease-in;
+    border: 1px solid #000;
+    border-radius: 10px;
+    height: 420px;
+    padding: 10px;
+    width: 70%;
+    top: 30%;
+}
+
+.view-weekly-summary-class-con textarea{
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+}
+
+.permission-form-data-uplo{
+    position: absolute;
+    left: 25%;
+    display: none;
+    animation: MyFadeForm 2s ease-in;
+    border: 1px solid #000;
+    border-radius: 10px;
+    height: 420px;
+    padding: 10px;
+    width: 70%;
+    top: 30%;
+}
+
+/*IPT INSTRUCTORS */
+.ipt-instructor-body{
+    width: 79.7%;
+    padding: 10px;
+    margin-left: 20%;
+    border-radius: 4px;
+    margin-top: 0.3%;
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+}
+
+
+/* IPT REPORT GENERATE */
+.report-generate-container{
+    width: 79.7%;
+    padding: 10px;
+    margin-left: 20%;
+    margin-top: 0.3%;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+}
+
+
+
+/* FIRM HR */
+.hr-dashboard-container{
+    width: 79.7.%;
+    padding: 10px;
+    margin-top: 0.3%;
+    margin-left: 20%;
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    border-radius: 4px;
+}
+
+.head-main-head{
+    float: left;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.hr-dashboard-container th{
+    cursor: pointer;
+    font-weight: 500;
+    border-bottom: 2px solid #000;
+}
+
+.hr-dashboard-container td{
+    border-bottom: 1.5px solid #000;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: center;
+    padding: 10px;
+}
+
+.upadted-verif-cont-button{
+    background-color: green;
+    color: #FFFFFF;
+    width: 100px;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.view-feedbacks-dashboard-clas{
+    width: 100%;
+    padding: 6px;
+    cursor: pointer;
+}
+.view-feedbacks-dashboard-clas p{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-style: italic;
+}
+
+.view-feedbacks-dashboard-clas:hover{
+    background-color: #ddd;
+    border-radius: 4px;
+}
+
+/*DEPARTMENT STAFF */
+.staff-dashboard-home-pan{
+    width: 79.7%;
+    margin-left: 20%;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    margin-top: 0.3%;
+}
+
+/* FIRM TRAINER */
+.staff-dashboard-home-pan table{
+    width: 100%;
+}
+
+.staff-dashboard-home-pan th{
+    border-bottom: 2px solid #000;
+    padding: 4px;
+    font-weight: 400;
+}
+
+.staff-dashboard-home-pan td a{
+    color: #0000FF;
+}
+
+.staff-dashboard-home-pan td{
+    font-weight: 400;
+    font-size: 14px;
+    text-align: center;
+    padding: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.view-daily,.weekly-view,.permission-form{
+    width: 70px;
+    background-color: green;
+    cursor: pointer;
+    color: #FFFFFF;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 4px;
+    font-size: 12px;
+    border-radius: 4px;
+}
+
+.showAttendanceForm{
+    padding: 4px;
+    width: 80px;
+    border-radius: 4px;
+    font-size: 12px;
+    cursor: pointer;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: green;
+    color: #FFFFFF;
+}
+
+@keyframes slowSlide{
+    from{
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slowInside{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+.upload-attendnce-data{
+    display: none;
+    animation: slowSlide 3s forwards;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    width: 300px;
+    height: 200px;
+    padding: 10px;
+    border-radius: 6px;
+}
+.upload-attendnce-data input{
+    padding: 10px;
+    margin-left: 5%;
+}
+
+.submit-attendance{
+    width: 80px;
+    background-color: green;
+    padding: 6px;
+    color: #FFFFFF;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/*ASSESSMENT AND EVALUATION */
+.upload-evaluation-form{
+    display: none;
+    position: absolute;
+    left: 22%;
+    top: 50%;
+    width: 75%;
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    border-radius: 6px;
+    padding: 10px;
+    animation: slowInside 3s forwards;
+}
+
+.upload-evaluation-form input{
+    padding: 6px;
+    background-color: inherit;
+    border: none;
+    border-bottom: 2px solid #000;
+    width: 500px;
+}
+.heading-component{
+    font-weight: 400;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.assessment-part0 label{
+    float: left;
+}
+
+.assessment-part0{
+    float: left;
+}
+.assessment-part0 input{
+    float: left;
+}
+.evaluation-part01{
+    float: left;
+    width: 100%;
+    margin-top: 0%;
+}
+.evaluation-part01 label{
+    float: left;
+}
+.evaluation-part01 input{
+    float: left;
+}
+.evaluation-part01 p{
+    float: left;
+}
+
+.evaluation-part02{
+    float: left;
+    width: 100%;
+}
+.evaluation-part02 h2,p{
+    float: left;
+}
+.evaluation-part02 h2{
+    font-weight: 500;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.submit-attendance{
+    float: left;
+}
+
+.evaluation-form-data{
+    width: 100%;
+}
+.evaluation-form-data td{
+    text-align: center;
+}
+
+.message-sent{
+    padding:10px;
+}
+
+
+
+
+/*AT MEDIA MAX-WIDTH: 768PX */
+@media(max-width:768px){
+    .container-lg-gx{
+        width: 90%;
+        height: 390px;
+    }
+    .container-lg-gx img{
+        height: 380px;
+    }
+
+    .atialased-bx-lg h1{
+        font-size: 14px;
+    }
+    .atialased-bx-lg label{
+        font-size: 12px;
+    }
+    .atialased-bx-lg input{
+        padding: 6px;
+    }
+    .atialased-bx-lg button{
+        padding: 6px;
+        font-size: 12px;
+        width: 100px;
+    }
+    .atialased-bx-lg a{
+        font-size: 10px;
+        padding: 0px;
+    }
+
+    .image-profile-logo{
+        width: 70px;
+        height: 60px;
+        left: 0.5%;
+    }
+    .image-profile-logo img{
+        width: 100%;
+        height: 60px
+    };
+    #profileImagex{
+        width: 0px;
+        height: 30px;
+        display: none;
+    }
+
+    header{
+        position: fixed;
+        width: 100%;
+        top: 0%;
+        padding: 16px;
+        background-color: rgb(135, 163, 224);
+    }
+
+    .message-container-parent{
+        width: 79%;
+        left: 18%;
+    }
+    .profile-layout img{
+        width: 30px;
+        height: 30px;
+        border-radius: 15px;
+    }
+
+    .message-sender-class input{
+        width: 70%;
+    }
+    .message-sent{
+        padding:10px;
+        font-size: 14px;
+    }
+
+    .message-action-module{
+        right: 65%;
+        font-size: 16px;
+    }
+    .notification-action-card{
+        right: 50%;
+        font-size: 16px;
+    }
+    .admin-profile-cont{
+        right: 0%;
+    }
+
+    .side-menu-container{
+        top: 12.7%;
+        width: 15%;
+    }
+    .side-menu-container em{
+        font-size: 14px;
+        display: none;
+    }
+    .container-centered-ajax{
+        margin-left: 20%;
+        width: 79.7%;
+    }
+
+    .container-centered-ajax div h2{
+        font-size: 12px;
+    }
+
+    .container-centered-ajax div{
+        width: 100px;
+        margin-left: 7%;
+        height: 100px;
+    }
+
+    .container-centered-ajax-report{
+        margin-left: 50%;
+        width: 300px;
+    }
+
+    .notification-component-card{
+        left: 20%;
+    }
+
+    .group-analytics-data{
+        margin-left: 18%;
+        box-shadow: none;
+        width: 79%;
+        margin-top: 5%;
+    }
+    .group-analytics-data img{
+        width: 100%;
+        margin-top: 10%;
+        box-shadow: 0 0 10px rgba(0,0,0,0.4);
+        border-radius: 4px;
+    }
+
+    .admin-profile-cont{
+        float: right;
+        margin-right: 0%;
+    }
+    .message-sent{
+        font-size: 10px;
+        padding: 4px;
+        margin-top: 2%;
+    }
+
+
+    header h1{
+        display: none;
+    }
+    .hide-extend{
+        display: none;
+    }
+
+    /*COLLEGE PROGRAMMES*/
+    .view-college-prorammes-container h2{
+        font-size: 12px;
+        font-weight: 500;
+    }
+    .view-college-prorammes-container{
+        margin-left: 12%;
+        width: 79%;
+    }
+
+    .view-college-prorammes-container table{
+        width: 100%;
+    }
+
+    .view-college-prorammes-container table th{
+        font-size: 10px;
+    }
+
+    .container-component-ajax-lg{
+        width: 79%;
+        margin-left: 15%;
+        border-radius: 4px;
+    }
+    .container-component-ajax-lg p{
+        font-size: 13px;
+        text-align: center;
+    }
+    .container-component-ajax-lg label{
+        font-size: 12px;
+    }
+    .container-component-ajax-lg input{
+        padding: 6px;
+    }
+    .container-component-ajax-lg select{
+        padding: 6px;
+    }
+    .container-component-ajax-lg button{
+        padding: 6px;
+        font-size: 12px;
+        width: 100px;
+    }
+
+    .container-component-ajax{
+        margin-left: 15%;
+        width: 79%;
+    }
+    .container-component-ajax p{
+        font-size: 14px;
+    }
+    .container-component-ajax input{
+        padding: 6px;
+    }
+    .container-component-ajax select{
+        padding: 6px;
+    }
+    .container-component-ajax label{
+        font-size: 12px;
+    }
+    .container-component-ajax button{
+        padding: 6px;
+        font-size: 12px;
+        width: 100px;
+    }
+
+    .programmes-ajax-card{
+        margin-top: 5%;
+        margin-left: 15%;
+        width: 79%;
+    }
+    .programmes-ajax-card p{
+        font-size: 14px;
+    }
+    .programmes-ajax-card label{
+        font-size: 12px;
+    }
+    .programmes-ajax-card input{
+        padding: 6px;
+    }
+    .programmes-ajax-card select{
+        padding: 6px;
+    }
+    .programmes-ajax-card button{
+        padding: 6px;
+        font-size: 12px;
+        width: 100px;
+    }
+
+    .flex-ajax-lx-bg{
+        margin-top: 5%;
+        margin-left: 15%;
+        width: 79%;
+    }
+    .flex-ajax-lx-bg p{
+        font-size: 14px;
+    }
+    .flex-ajax-lx-bg label{
+        font-size: 12px;
+    }
+    .flex-ajax-lx-bg input{
+        padding: 6px;
+    }
+    .flex-ajax-lx-bg select{
+        padding: 6px;
+    }
+    .flex-ajax-lx-bg button{
+        padding: 6px;
+        font-size: 12px;
+        width: 100px;
+    }
+
+    .container-student-ajax{
+        margin-top: 4%;
+        margin-left: 15%;
+        width: 79%;
+    }
+    .container-student-ajax table{
+        width: 100%;
+    }
+    .container-student-ajax th{
+        font-size: 12px;
+        padding: 0px;
+    }
+    .container-student-ajax td{
+        font-size: 10px;
+        padding: 0px;
+    }
+
+    .search-single-lg input{
+        width: 120px;
+    }
+    .search-single-lg{
+        right: 45%;
+    }
+
+    .ajax-lg-bx-sudent-comp{
+        margin-left: 15%;
+        margin-top: 4%;
+        width: 79%;
+    }
+    .ajax-lg-bx-sudent-comp p{
+        font-size: 14px;
+    }
+    .ajax-lg-bx-sudent-comp label{
+        font-size: 12px;
+    }
+    .ajax-lg-bx-sudent-comp input{
+        padding: 6px;
+    }
+    .ajax-lg-bx-sudent-comp select{
+        padding: 6px;
+    }
+    .ajax-lg-bx-sudent-comp button{
+        width: 100px;
+        padding: 6px;
+        font-size: 12px;
+    }
+
+    .ipt-coordinator{
+        margin-left: 15%;
+        margin-top: 4%;
+        width: 79%;
+    }
+    .ipt-coordinator input{
+        padding: 6px;
+    }
+    .ipt-coordinator select{
+        padding: 6px;
+    }
+    .ipt-coordinator p{
+        font-size: 14px;
+        text-transform: uppercase;
+    }
+    .ipt-coordinator label{
+        font-size: 12px;
+    }
+    .ipt-coordinator button{
+        padding: 6px;
+        font-size: 12px;
+        width: 100px;
+    }
+
+    .firm-hr-reg-lx{
+        margin-left: 15%;
+        margin-top: 4%;
+        width: 79%;
+    }
+    .firm-hr-reg-lx p{
+        font-size: 14px;
+    }
+    .firm-hr-reg-lx input{
+        padding: 6px;
+    }
+    .firm-hr-reg-lx select{
+        padding: 6px;
+    }
+    .firm-hr-reg-lx label{
+        font-size: 12px;
+    }
+    .firm-hr-reg-lx button{
+        font-size: 12px;
+        width: 100px;
+        padding: 6px;
+    }
+    .firm-register-form{
+        margin-left: 15%;
+        margin-top: 4%;
+        width: 79%;
+    }
+    .firm-register-form input{
+        padding: 6px;
+    }
+    .firm-register-form select{
+        padding: 6px;
+    }
+    .firm-register-form label{
+        font-size: 12px;
+    }
+    .firm-register-form p{
+        font-size: 14px;
+    }
+    .firm-register-form button{
+        padding: 6px;
+        width: 100px;
+        font-size: 12px;
+    }
+
+    .firm-trainer-component-ajax,.programmes-ajax-card-view{
+        margin-left: 15%;
+        margin-top: 4%;
+        width: 79%;
+    }
+    .firm-trainer-component-ajax p{
+        font-size: 14px;
+    }
+    .firm-trainer-component-ajax input{
+        padding: 6px;
+    }
+    .firm-trainer-component-ajax select{
+        padding: 6px;
+    }
+    .firm-trainer-component-ajax button{
+        padding: 6px;
+        width: 100px;
+        font-size: 12px;
+    }
+    .firm-trainer-component-ajax label{
+        font-size: 12px;
+    }
+
+    .programmes-ajax-card-view p{
+        font-size: 14px;
+    }
+    .programmes-ajax-card-view label{
+        font-size: 12px;
+    }
+    .programmes-ajax-card-view input{
+        padding: 6px;
+    }
+    .programmes-ajax-card-view select{
+        padding: 6px;
+    }
+    .programmes-ajax-card-view button{
+        width: 100px;
+        padding: 6px;
+        font-size: 12px;
+    }
+
+    .vacancy-container{
+        width: 80%;
+        margin-left: 15%;
+        height: 600px;
+        margin-top: 5%;
+    }
+    .vacancy-container p{
+        font-size: 14px;
+    }
+    .vacancy-container input{
+        padding: 6px;
+        width: 100%;
+    }
+    .vacancy-container select{
+        padding: 6px;
+        width: 100%;
+    }
+    .vacancy-container label{
+        font-size: 12px;
+    }
+    .vacancy-container button{
+        width: 100px;
+        padding: 6px;
+        font-size: 12px;
+    }
+
+    .left-side-pane{
+        margin-top: 5%;
+        margin-left: 15%;
+        border-radius: 6px;
+    }
+    .left-container-block-side{
+        padding: 4px;
+    }
+    .left-container-block-side img{
+        width: 40px;
+        height: 40px;
+        border-radius: 20px;
+    }
+    .left-container-block-side p{
+        font-size: 12px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .right-side-container-panne{
+        width: 200px;
+        padding: 4px;
+    }
+
+    .right-side-container-panne a{
+        font-size: 12px;
+        padding: 1px;
+    }
+    .right-side-container-panne label{
+        font-size: 12px;
+    }
+    .right-side-container-panne input{
+        padding: 6px;
+    }
+    .right-side-container-panne button{
+        padding: 6px;
+        width: 100px;
+        font-size: 12px;
+    }
+}
