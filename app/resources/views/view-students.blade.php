@@ -15,6 +15,32 @@
 
 
     <div class="container-student-ajax">
+
+        <p class="head-main-head">View Students</p><br><br>
+        <div class="academic-year-status" id="academic-year-status">
+            <p>Active Academic Year: <span class="previousYear"></span>/<span class="currentYear"></span></p><br>
+        </div><br>
+
+        <script>
+            const currentYear=new Date();
+
+            const yearOption={weekly: 'long' , year: 'numeric'};
+
+            //
+
+            const formattedYear=currentYear.toLocaleDateString('en-US', yearOption);
+
+            //
+
+            document.querySelector('.currentYear').textContent=formattedYear;
+
+            document.querySelector('.previousYear').textContent=formattedYear-1;
+
+            //
+        </script>
+
+
+
         <table>
             <tr>
                 <th>Registration Number</th><th>Name</th><th>Programme</th><th>Department</th><th>College</th><th>Academic Year</th><th>Level</th><th>Profile</th><th>Edit</th><th>Delete</th>

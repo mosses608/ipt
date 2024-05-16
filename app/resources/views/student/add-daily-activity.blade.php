@@ -7,9 +7,7 @@
 
 <x-message-card-view />
 
-@foreach ($activities as $activity)
 
-@endforeach
 
 <center>
     <div class="new-element0-dail-add">
@@ -18,10 +16,14 @@
             <p>Active Academic Year: <span class="previousYear"></span>/<span class="currentYear"></span></p><br>
         </div><br>
 
+
         <button class="load-items-hidden" onclick="shiwForm()">Load Form</button>
+        @foreach ($activities as $activity)
+
         @if ($activity->reg_number == auth()->guard('student')->user()->username)
         <button class="display-content-button" onclick="showMyDailyTasks()"><i class="fa fa-eye"></i> View</button>
         @endif
+        @endforeach
         <br>
 
         <form action="/activities" method="POST" class="add-daily-task-class" enctype="multipart/form-data">

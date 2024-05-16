@@ -21,9 +21,9 @@ class DatabaseSeeder extends Seeder
             'password' => '123456789',
         ]);
         User::create([
-            'full_name' => 'Jeremiah',
-            'username' => 'mohammed@gmail.com',
-            'password' => 'mosses',
+            'full_name' => 'Paschal Mbowe',
+            'username' => 'paschalmbowe@gmail.com',
+            'password' => '123456789',
         ]);
     }
 }

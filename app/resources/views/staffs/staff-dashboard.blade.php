@@ -15,7 +15,7 @@
         </div><br><br>
         <div class="academic-year-status">
             <p>Active Academic Year: <span class="previousYear"></span>/<span class="currentYear"></span></p><br>
-        </div><br>
+        </div><br><br><br><br>
 
         <div class="firm-profile-number-count"><br>
             <h1><i class="fa fa-building"></i></h1><br>

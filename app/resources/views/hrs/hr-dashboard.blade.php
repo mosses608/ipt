@@ -36,7 +36,7 @@
 
         @foreach ($students as $student)
 
-        @if ($apps->reg_number == $student->username)
+        @if ($apps->reg_number == $student->username && auth()->guard('hr')->user()->company_name == $apps->firm_name)
 
         <tr>
             <td>{{$student->full_name}}</td>
@@ -65,7 +65,7 @@
             <td><button class="upadted-verif-cont-button">{{$student->response}}</button></td>
             @else
             <td>
-                <button class="upadted-verif-cont-button"><a href="/hrs/show-single/{{$student->id}}" style="color: #FFFFFF;"><i class="fa fa-eye"></i></a></button>
+                <button class="upadted-verif-cont-button-x"><a href="/hrs/show-single/{{$student->id}}" style="color: #FFFFFF;"><i class="fa fa-eye"></i>Pending</a></button>
                 <!--<form action="/students/upadateResponse/{{$student->id}}" method="POST" class="upadted-verif-cont">
                     @csrf
                     @method('PUT')
@@ -87,14 +87,14 @@
     <div class="paginate-link-complexer">
         {{$students->links()}}
     </div>
-
+<!--
     <div class="search-single-lg">
         <form action="/hrs/hr-dashboard" method="GET">
             @csrf
             <input type="text" name="search" id="" placeholder="Search by student name, firm name"> <button type="submit"><i class="fas fa-search"></i></button>
         </form>
     </div>
-
+-->
     </div>
 </center>
 

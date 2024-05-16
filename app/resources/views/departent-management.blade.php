@@ -10,6 +10,31 @@
 
 <center>
     <form action="/departments" method="POST" class="programmes-ajax-card">
+
+        <p class="head-main-head">Department Registration</p><br><br>
+        <div class="academic-year-status" id="academic-year-status">
+            <p>Active Academic Year: <span class="previousYear"></span>/<span class="currentYear"></span></p><br>
+        </div><br>
+
+        <script>
+            const currentYear=new Date();
+
+            const yearOption={weekly: 'long' , year: 'numeric'};
+
+            //
+
+            const formattedYear=currentYear.toLocaleDateString('en-US', yearOption);
+
+            //
+
+            document.querySelector('.currentYear').textContent=formattedYear;
+
+            document.querySelector('.previousYear').textContent=formattedYear-1;
+
+            //
+        </script>
+
+<br>
         @csrf
         <p>Department Registration Form</p><br><br>
         <div class="left-menus-class">

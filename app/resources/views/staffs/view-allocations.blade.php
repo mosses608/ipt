@@ -39,7 +39,7 @@
                     @else
                     <td><button onclick="showUpdateForm()">Assign</button></td>
                     @endif
-                    <td><button onclick="showDailyTasks()"><i class="fa fa-eye"></i> Daily Activity</button> <br> <button class="weekly-summary-button" onclick="showWeeklySummary()"><i class="fa fa-eye"></i> Weekly Summary</button> <button class="permission-button" onclick="showPermissionData()"><i class="fa fa-eye"></i> Permission Form</button></td>
+                    <td><button onclick="showDailyTasks()">Daily</button>  <button class="weekly-summary-button" onclick="showWeeklySummary()">Weekly</button> <button class="permission-button" onclick="showPermissionData()">Permission</button></td>
 
                 </tr>
 

@@ -191,14 +191,15 @@ header h1 span{
     cursor: pointer;
 }
 .login-success-message{
-    padding: 10px;
+    padding: 6px;
     float: right;
     margin-right: 1%;
     animation: slideInRight 2s forwards;
     border-radius:5px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }
 .login-success-message p{
+    font-size: 14px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color:#000000;
 }
@@ -333,11 +334,63 @@ header h1 span{
     display: block;
 }
 
+.permission-open{
+    float: left;
+    background-color: orange;
+    padding: 6px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #FFFFFF;
+    width: 100px;
+}
+
+@keyframes showPermissionForm{
+    from{
+        opacity: 0;
+        transform: translateY(0);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(1%);
+    }
+}
+.upload-permission-form-container{
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    width: 40%;
+    animation: showPermissionForm 2s forwards;
+    border-radius: 4px;
+    padding: 6px;
+    display: none;
+    float: left;
+}
+
+.upload-permission-form-container label{
+    padding: 4px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    float: left;
+}
+.upload-permission-form-container input{
+    width: 100%;
+    border: 1px solid #000;
+    padding: 6px;
+    border-radius: 4px;
+}
+.submit-form{
+    float: left;
+    background-color: #007BFF;
+    color: #FFFFFF;
+    padding: 6px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 /* CENTER DATA HERE */
 .container-centered-ajax{
     margin-top: 1%;
-    margin-left: 22%;
-    width: 70%;
+    margin-left: 20%;
+    width: 79.7%;
 }
 
 .student-report-db,.staff-report-db{
@@ -347,14 +400,21 @@ header h1 span{
     cursor: pointer;
     width:180px;
     height: 160px;
-    margin-left: 4%;
+    margin-left: 6%;
     color:#FFFFFF;
     box-shadow:0 0 10px rgba(0,0,0,0.4);
     float: left;
-    margin-top: 4%;
+    margin-top: 2%;
 }
 .container-centered-ajax div:hover{
     background-color:#45bb78;
+}
+.container-centered-ajax-lg h2{
+    font-size: 18px;
+    font-weight: 400;
+}
+.container-centered-ajax-lg{
+    margin-top: 5%;
 }
 
 .container-centered-ajax h2{
@@ -369,7 +429,18 @@ header h1 span{
     width: 75%;
     border-radius:4px;
     cursor: pointer;
-    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    float: none;
+}
+
+.group-analytics-data-xx{
+    margin-top: 30%;
+    margin-left: 0%;
+    padding: 10px;
+    width: 90%;
+    border-radius:4px;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
     float: none;
 }
 
@@ -429,7 +500,7 @@ header h1 span{
     padding: 10px;
     width: 79.7%;
     margin-top: -1%;
-    height: 330px;
+    height: 420px;
 }
 
 .left-panel-01{
@@ -439,19 +510,20 @@ header h1 span{
 .left-panel-01 input{
     width: 100%;
     border: 1px solid #000;
-    padding: 14px;
-    border-radius: 6px;
+    padding: 6px;
+    border-radius: 4px;
 }
 
 .left-panel-01 select{
     width: 100%;
     border: 1px solid #000;
-    padding: 14px;
-    border-radius: 6px;
+    padding: 6px;
+    border-radius: 4px;
 }
 
 .left-panel-01 label{
     float: left;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .right-panel-01{
@@ -461,14 +533,14 @@ header h1 span{
 .right-panel-01 input{
     width: 100%;
     border: 1px solid #000;
-    padding: 14px;
-    border-radius: 6px;
+    padding: 6px;
+    border-radius: 4px;
 }
 .right-panel-01 select{
     width: 100%;
     border: 1px solid #000;
-    padding: 14px;
-    border-radius: 6px;
+    padding: 6px;
+    border-radius: 4px;
 }
 
 .right-panel-01-button{
@@ -476,7 +548,7 @@ header h1 span{
     background-color: #007BFF;
     border-radius: 6px;
     color: #FFFFFF;
-    padding: 10px;
+    padding: 6px;
     cursor: pointer;
 }
 
@@ -486,19 +558,20 @@ header h1 span{
 }
 .left-panel select{
     width: 100%;
-    padding: 16px;
-    border-radius:6px;
+    padding: 6px;
+    border-radius:4px;
     border:1px solid #000;
 }
 
 .left-panel input{
     width: 100%;
-    padding: 16px;
-    border-radius:6px;
+    padding: 6px;
+    border-radius:4px;
     border:1px solid #000;
 }
 
 .left-panel label{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     float: left;
 }
 
@@ -508,30 +581,62 @@ header h1 span{
 }
 .right-panel select{
     width: 100%;
-    padding: 16px;
-    border-radius:6px;
+    padding: 6px;
+    border-radius:4px;
     border:1px solid #000;
 }
 .right-panel input{
     width: 100%;
-    padding: 16px;
-    border-radius:6px;
+    padding: 6px;
+    border-radius:4px;
     border:1px solid #000;
 }
 .right-panel label{
     float: left;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 .right-panel button{
-    float: left;
-    background-color:green;
-    padding: 10px;
+    float: none;
+    background-color:#007BFF;
+    padding: 6px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     cursor: pointer;
     width: 120px;
-    float: right;
     color:#FFFFFF;
-    border-radius:10px;
+    border-radius:4px;
 }
+
+.container-centered-ajax-table{
+    width: 100%;
+}
+.container-centered-ajax-table th{
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    padding: 6px;
+    font-weight: 400;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.container-centered-ajax-table td{
+    padding: 6px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    text-align: center;
+    font-size: 14px;
+    cursor: pointer;
+}
+.container-centered-ajax-table tr:hover{
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.container-centered-ajax-x{
+    width: 79.7%;
+    margin-left: 20%;
+}
+.feedback-box-cox{
+    width: 100%;
+    padding: 6px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 6px;
+}
+
 
 
 
@@ -841,7 +946,7 @@ header h1 span{
     padding: 10px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0,0,0,0.4);
-    height: 260px;
+    height: 370px;
     margin-left: 20%;
     width: 78%;
 }
@@ -856,10 +961,10 @@ header h1 span{
     float: left;
 }
 .right-menus-class button{
-    padding: 10px;
+    padding: 6px;
     color: #FFFFFF;
-    background-color: green;
-    border-radius: 10px;
+    background-color: #007BFF;
+    border-radius: 4px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     border: none;
     cursor: pointer;
@@ -867,31 +972,37 @@ header h1 span{
 }
 
 .right-menus-class select{
-    padding: 16px;
-    border-radius: 10px;
+    padding: 6px;
+    border-radius: 4px;
     width: 100%;
+}
+.right-menus-class label{
+    float: left;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .right-menus-class input{
-    padding: 16px;
+    padding: 6px;
     width: 100%;
+    border-radius: 4px;
 }
 
 .left-menus-class label{
     float: left;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .left-menus-class select{
     width: 100%;
-    padding: 16px;
-    border-radius: 10px;
+    padding: 6px;
+    border-radius: 4px;
     border: 1px solid #000;
 }
 
 .left-menus-class input{
     width: 100%;
-    padding: 16px;
-    border-radius: 10px;
+    padding: 6px;
+    border-radius: 4px;
     border: 1px solid #000;
 }
 
@@ -900,7 +1011,7 @@ header h1 span{
     padding: 10px;
     width: 78%;
     border-radius: 5px;
-    height: 550px;
+    height: 600px;
     margin-top: 1%;
     box-shadow: 0 0 10px rgba(0,0,0,0.4);
 }
@@ -916,20 +1027,26 @@ header h1 span{
 
 .left-side-panel label{
     float: left;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .left-side-panel select{
     width: 100%;
-    padding: 16px;
-    border-radius: 10px;
+    padding: 6px;
+    border-radius: 4px;
     border: 1px solid #000;
 }
 
 .left-side-panel input{
     width: 100%;
-    padding: 16px;
-    border-radius: 10px;
+    padding: 6px;
+    border-radius: 4px;
     border: 1px solid #000;
+}
+
+.right-side-panel label{
+    float: left;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .right-side-panel{
@@ -939,26 +1056,26 @@ header h1 span{
 
 .right-side-panel select{
     width: 100%;
-    padding: 16px;
+    padding: 6px;
     border: 1px solid #000;
-    border-radius: 10px;
+    border-radius: 4px;
 }
 
 .right-side-panel input{
     width: 100%;
-    padding: 16px;
+    padding: 6px;
     border: 1px solid #000;
-    border-radius: 10px;
+    border-radius: 4px;
 }
 
 .right-side-panel button{
-    padding: 10px;
+    padding: 6px;
     background-color: #007BFF;
     color: #FFFFFF;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     border: none;
     cursor: pointer;
-    border-radius: 10px;
+    border-radius: 4px;
     width: 120px;
 }
 
@@ -976,8 +1093,9 @@ header h1 span{
 }
 
 .container-student-ajax table img{
-    width: 50px;
-    height: 50px;
+    width: 30px;
+    border-radius: 4px;
+    height: 30px;
     text-align: center;
     cursor: pointer;
 }
@@ -985,15 +1103,17 @@ header h1 span{
 .container-student-ajax th{
     font-weight: 400;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 14px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     padding: 10px;
     border-bottom: 2px solid #000;
     text-align: center;
 }
 .container-student-ajax table td{
     font-size: 12px;
-    padding: 8px;
+    padding: 4px;
     cursor: pointer;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
     text-align: center;
 }
 
@@ -1030,7 +1150,7 @@ header h1 span{
     margin-top: 1%;
     border-radius: 5px;
     padding: 10px;
-    height: 520px;
+    height: 550px;
 }
 .flex-ajax-lx-bg p{
     text-transform: uppercase;
@@ -1043,20 +1163,26 @@ header h1 span{
 
 .left-staff-field label{
     float: left;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .left-staff-field select{
     width: 100%;
-    padding: 16px;
-    border-radius: 10px;
+    padding: 6px;
+    border-radius: 4px;
     border:1px solid #000;
 }
 
 .left-staff-field input{
     width: 100%;
-    padding: 16px;
-    border-radius: 10px;
+    padding: 6px;
+    border-radius: 4px;
     border:1px solid #000;
+}
+
+.right-staff-field label{
+    float: left;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .right-staff-field{
@@ -1066,27 +1192,27 @@ header h1 span{
 
 .right-staff-field select{
     width: 100%;
-    padding: 16px;
-    border-radius: 10px;
+    padding: 6px;
+    border-radius: 4px;
     border:1px solid #000;
 }
 
 .right-staff-field input{
     width: 100%;
-    padding: 16px;
-    border-radius: 10px;
+    padding: 6px;
+    border-radius: 4px;
     border:1px solid #000;
 }
 
 .right-staff-field button{
-    padding: 10px;
+    padding: 6px;
     background-color: #007BFF;
     width: 120px;
     border: none;
     color: #FFFFFF;
     cursor: pointer;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    border-radius: 5px;
+    border-radius: 4px;
 }
 
 /* FIRM SIDE STYLE */
@@ -1094,7 +1220,7 @@ header h1 span{
     margin-left: 20%;
     margin-top: 1%;
     border-radius: 5px;
-    height: 380px;
+    height: 430px;
     padding: 10px;
     box-shadow: 0 0 10px rgba(0,0,0,0.4);
     width: 79%;
@@ -1109,12 +1235,13 @@ header h1 span{
 }
 .left-hr-side-pane input{
     width: 100%;
-    padding: 16px;
-    border-radius: 10px;
+    padding: 6px;
+    border-radius: 4px;
     border:1px solid #000;
 }
 .left-hr-side-pane label{
     float: left;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .right-hr-side-pane{
@@ -1123,16 +1250,23 @@ header h1 span{
 }
 .right-hr-side-pane input{
     width: 100%;
-    padding: 16px;
-    border-radius: 10px;
+    padding: 6px;
+    border-radius: 4px;
     border:1px solid #000;
+}
+.right-hr-side-pane select{
+    width: 100%;
+    padding: 6px;
+    border-radius: 4px;
+    border:1px solid #000;
+
 }
 
 .right-hr-side-pane button{
     width: 120px;
-    padding: 10px;
+    padding: 6px;
     border: none;
-    border-radius: 10px;
+    border-radius: 4px;
     color: #FFFFFF;
     background-color: #007BFF;
     cursor: pointer;
@@ -1141,11 +1275,11 @@ header h1 span{
 
 .firm-register-form{
     margin-left: 20%;
-    width: 79%;
+    width: 79.7%;
     box-shadow: 0 0 10px rgba(0,0,0,0.4);
     border-radius: 5px;
     margin-top: 1%;
-    height: 340px;
+    height: 420px;
     padding: 10p;
 }
 
@@ -1162,12 +1296,13 @@ header h1 span{
 
 .left-side-firm input,select{
     width: 98%;
-    padding: 16px;
-    border-radius: 10px;
+    padding: 6px;
+    border-radius: 4px;
     border:1px solid #000;
 }
 .left-side-firm label{
     float: left;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .right-side-firm{
@@ -1178,21 +1313,21 @@ header h1 span{
 
 .right-side-firm select{
     width: 98%;
-    padding: 16px;
-    border-radius: 10px;
+    padding: 6px;
+    border-radius: 4px;
     border:1px solid #000;
 }
 
 .right-side-firm input{
     width: 98%;
-    padding: 16px;
-    border-radius: 10px;
+    padding: 6px;
+    border-radius: 4px;
     border:1px solid #000;
 }
 
 .right-side-firm button{
-    padding: 14px;
-    border-radius: 10px;
+    padding: 6px;
+    border-radius: 4px;
     color: #FFFFFF;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     cursor: pointer;
@@ -1223,20 +1358,26 @@ header h1 span{
 
 .left-firm-trainer-sub-form input{
     width: 100%;
-    padding: 16px;
+    padding: 6px;
     border: 1px solid #000;
-    border-radius: 10px;
+    border-radius: 4px;
 }
 
 .left-firm-trainer-sub-form select{
     width: 100%;
-    padding: 16px;
+    padding: 6px;
     border: 1px solid #000;
-    border-radius: 10px;
+    border-radius: 4px;
 }
 
 .left-firm-trainer-sub-form label{
     float: left;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.righ-firm-trainer-sub-form label{
+    float: left;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .righ-firm-trainer-sub-form{
@@ -1246,17 +1387,17 @@ header h1 span{
 
 .righ-firm-trainer-sub-form input{
     width: 100%;
-    padding: 16px;
+    padding: 6px;
     border: 1px solid #000;
-    border-radius: 10px;
+    border-radius: 4px;
 }
 
 .firm-trainer-component-ajax button{
-    padding: 14px;
+    padding: 6px;
     width: 120px;
     border: none;
     cursor: pointer;
-    border-radius: 10px;
+    border-radius: 4px;
     color: #FFFFFF;
     background-color: #007BFF;
 }
@@ -1269,7 +1410,7 @@ header h1 span{
     box-shadow: 0 0 10px rgba(0,0,0,0.4);
     border-radius: 5px;
     margin-top: 1%;
-    height: 300px;
+    height: 360px;
 }
 
 .side-view-left{
@@ -1284,46 +1425,45 @@ header h1 span{
 
 .side-view-left label{
     float: left;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .side-view-left select{
     width: 100%;
-    padding: 10px;
+    padding: 6px;
     border: 1px solid #000;
-    padding: 16px;
-    border-radius: 10px;
+    border-radius: 4px;
 }
 
 .side-view-left input{
     width: 100%;
-    padding: 10px;
+    padding: 6px;
     border: 1px solid #000;
-    padding: 16px;
-    border-radius: 10px;
+    border-radius: 4px;
 }
 .side-view-right select{
     width: 100%;
-    padding: 10px;
+    padding: 6px;
     border: 1px solid #000;
-    padding: 16px;
-    border-radius: 10px;
+    border-radius: 4px;
 }
 .side-view-left input{
     width: 100%;
-    padding: 10px;
+    padding: 4px;
     border: 1px solid #000;
-    padding: 16px;
-    border-radius: 10px;
+    padding: 6px;
+    border-radius: 4px;
 }
 
 
 .side-view-right button{
-    padding: 14px;
-    border-radius: 10px;
+    padding: 6px;
+    border-radius: 4px;
     background-color: #007BFF;
     color: #FFFFFF;
     width: 120px;
     cursor: pointer;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .programmes-ajax-card-view p{
@@ -1426,15 +1566,15 @@ header h1 span{
 }
 
 .container-centered-ajax-report table th{
-    font-weight: 500;
+    font-weight: 400;
     border-bottom: 2px solid #000;
-    font-size: 15px;
-    padding: 0px;
+    font-size: 14px;
+    padding: 2px;
 }
 
 .container-centered-ajax-report table tr:hover{
-    background-color: #ddd;
     cursor: pointer;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
     border-radius: 4px;
 }
 
@@ -1443,6 +1583,7 @@ header h1 span{
     padding: 6px;
     text-align: center;
     font-size: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 .control-menu-items{
@@ -1585,9 +1726,9 @@ header h1 span{
 }
 
 .message-container img{
-    width: 40px;
-    height: 40px;
-    border-radius: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
     float: left;
 }
 
@@ -1748,7 +1889,7 @@ header h1 span{
 }
 
 .firm-vacancy-admin{
-    width: 79%;
+    width: 79.7%;
     margin-left: 20%;
     box-shadow: 0 0 10px rgba(0,0,0,0.4);
     border-radius: 5px;
@@ -1797,8 +1938,8 @@ header h1 span{
 .gender-component input{
     width: 200px;
     border: 1px solid #000;
-    border-radius: 5px;
-    padding: 10px;
+    border-radius: 4px;
+    padding: 6px;
 }
 .gender-component em{
     margin-left: 2%;
@@ -1813,15 +1954,15 @@ header h1 span{
     width: 160px;
     border: 1px solid #000;
     padding: 6px;
-    border-radius: 5px;
+    border-radius: 4px;
 }
 
 .submit-vacancy{
     width: 120px;
     background-color: #007BFF;
     color: #FFFFFF;
-    padding: 10px;
-    border-radius: 5px;
+    padding: 6px;
+    border-radius: 4px;
     cursor: pointer;
 }
 
@@ -1894,8 +2035,8 @@ header h1 span{
 }
 
 .firm-profile-number-count{
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
     border-radius: 10px;
     float: left;
     cursor: pointer;
@@ -1907,12 +2048,12 @@ header h1 span{
     color: #FFFFFF;
     font-weight: 400;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .student-profile-number-count{
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
     border-radius: 10px;
     float: left;
     margin-left: 10%;
@@ -1924,12 +2065,12 @@ header h1 span{
     font-weight: 400;
     color: #FFFFFF;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .vacancy-profile-number-count{
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
     border-radius: 10px;
     cursor: pointer;
     float: left;
@@ -1941,7 +2082,7 @@ header h1 span{
     color: #FFFFFF;
     text-align: center;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .head-comp a:hover{
@@ -1949,6 +2090,80 @@ header h1 span{
     color: #0000FF;
     cursor: pointer;
 }
+
+.assign-class-container{
+    width: 100%;
+}
+.assign-class-container th{
+    font-weight: 400;
+    border-bottom: 2px solid #000;
+    padding: 6px;
+    font-size: 15px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.assign-class-container td input{
+    font-size: 13px;
+    cursor: pointer;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.assign-class-container td{
+    padding: 6px;
+    font-size: 13px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    cursor: pointer;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+.assign-class-container tr:hover{
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+.assign-class-container a{
+    color: #0000FF;
+}
+
+.assign-class-container-button{
+    width: 100%;
+    background-color: #007BFF;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-size: 13px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 6px;
+    border-radius: 4px;
+}
+
+.post-field-vaccancy{
+    width: 50%;
+    padding: 6px;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.post-field-vaccancy label{
+    float: left;
+    font-size: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.post-field-vaccancy select{
+    width: 100%;
+}
+.post-field-vaccancy input{
+    width: 100%;
+    border: 1px solid #000;
+    border-radius: 4px;
+    padding: 6px;
+}
+
+.submit-vaccancy{
+    width: 100px;
+    background-color: #007BFF;
+    padding: 6px;
+    border-radius: 4px;
+    color: #FFFFFF;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    float: left;
+}
+
 
 /*ADD NEW DAILY ACTIVITIES */
 
@@ -2249,7 +2464,7 @@ header h1 span{
     box-shadow: 0 0 10px rgba(0,0,0,0.4);
     border-radius: 4px;
     margin-top: 0.5%;
-    height: 440px;
+    height: 480px;
 }
 
 .head-sub-head{
@@ -2262,6 +2477,7 @@ header h1 span{
 }
 .left-ipt-coordi label{
     float: left;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .left-ipt-coordi select{
@@ -2274,6 +2490,11 @@ header h1 span{
     padding: 10px;
     border: 1px solid #000;
     border-radius: 4px;
+}
+
+.right-ipt-coordi label{
+    float: left;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .right-ipt-coordi{
@@ -2318,33 +2539,49 @@ header h1 span{
 }
 .load-data-student-list th{
     text-align: center;
-    padding: 10px;
+    padding: 2px;
     cursor: pointer;
-    cursor: pointer;
+    font-size: 13px;
     font-weight: 400;
     border-bottom:  2px solid #000;
 }
 .load-data-student-list td{
     text-align: center;
     cursor: pointer;
-    font-size: 15px;
-    padding: 10px;
-    border-bottom: 1px solid #000;
+    font-size: 11px;
+    padding: 2px;
+    text-transform: capitalize;
+    box-shadow: 0 0 4px rgba(0,0,0,0.2);
+}
+
+.load-data-student-list tr:hover{
+    box-shadow: 0 0 4px rgba(0,0,0,0.2);
 }
 
 
 .load-data-student-list table a{
     color: #0000FF;
+    font-size: 11px;
 }
 
 .load-data-student-list table button{
-    width: 140px;
-    padding: 6px;
-    background-color: green;
+    width: 50px;
+    display: inline;
+    padding: 2px;
+    background-color: #007BFF;
     color: #FFFFFF;
-    margin-top: 1%;
+    font-size: 10px;
     cursor: pointer;
     border-radius: 4px;
+}
+
+.print-document-button,.download-document-button{
+    float: right;
+    padding: 6px;
+    background-color: inherit;
+    font-size: 20px;
+    cursor: pointer;
+    color: #0000FF;
 }
 
 @keyframes MyFadeForm {
@@ -2388,7 +2625,7 @@ header h1 span{
     height: 240px;
     padding: 10px;
     width: 60%;
-    top: 30%;
+    top: 35%;
 }
 
 .view-daily-tasks img{
@@ -2406,8 +2643,8 @@ header h1 span{
     border-radius: 10px;
     height: 420px;
     padding: 10px;
-    width: 70%;
-    top: 30%;
+    width: 65%;
+    top: 35%;
 }
 
 .view-weekly-summary-class-con textarea{
@@ -2425,8 +2662,30 @@ header h1 span{
     border-radius: 10px;
     height: 420px;
     padding: 10px;
-    width: 70%;
-    top: 30%;
+    width: 65%;
+    top: 35%;
+}
+
+@keyframes slideClose{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+.close-content-displayed{
+    animation: slideClose 2s ease-in;
+    float: right;
+    padding: 6px;
+    background-color: maroon;
+    cursor: pointer;
+    display: none;
+    color: #FFFFFF;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: 4px;
+    width:100px;
 }
 
 /*IPT INSTRUCTORS */
@@ -2457,6 +2716,7 @@ header h1 span{
     width: 79.7.%;
     padding: 10px;
     margin-top: 0.3%;
+    height: 600px;
     margin-left: 20%;
     box-shadow: 0 0 10px rgba(0,0,0,0.4);
     border-radius: 4px;
@@ -2467,28 +2727,49 @@ header h1 span{
     padding: 10px;
     cursor: pointer;
 }
+.hr-dashboard-container table{
+    width: 100%;
+}
 
 .hr-dashboard-container th{
     cursor: pointer;
     font-weight: 500;
+    font-size: 12px;
     border-bottom: 2px solid #000;
 }
 
 .hr-dashboard-container td{
-    border-bottom: 1.5px solid #000;
-    font-size: 14px;
+    font-size: 11px;
     cursor: pointer;
     text-align: center;
-    padding: 10px;
+    padding: 4px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }
 
 .upadted-verif-cont-button{
     background-color: green;
     color: #FFFFFF;
-    width: 100px;
-    padding: 10px;
+    width: 70px;
+    font-size: 11px;
+    padding: 4px;
     border-radius: 4px;
     cursor: pointer;
+}
+.upadted-verif-cont-button-x{
+    background-color: #444;
+    color: #FFFFFF;
+    width: 70px;
+    font-size: 11px;
+    padding: 4px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.upadted-verif-cont{
+    background-color: #444;
+    color: #FFFFFF;
+    padding: 6px;
+    border-radius: 4px;
 }
 
 .view-feedbacks-dashboard-clas{
@@ -2502,17 +2783,49 @@ header h1 span{
 }
 
 .view-feedbacks-dashboard-clas:hover{
-    background-color: #ddd;
     border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }
 
+.feedback-container{
+    width: 80%;
+}
+.feedback-container p{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.feedback-container span{
+    font-size: 12px;
+    color: orange;
+}
+.feedback-container:hover{
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    border-radius: 4px;
+}
+.average-score{
+    border-bottom: 2px rgba(0,0,0,0.2);
+}
+
+footer{
+    position: fixed;
+    bottom: 0%;
+    width: 100%;
+    padding: 10px;
+    background-color: rgb(135, 163, 224);
+}
+
+footer h4{
+    text-align: center;
+    font-size: 14px;
+    color: #FFFFFF;
+    font-weight: 500;
+}
 /*DEPARTMENT STAFF */
 .staff-dashboard-home-pan{
     width: 79.7%;
     margin-left: 20%;
     padding: 10px;
     box-shadow: 0 0 10px rgba(0,0,0,0.4);
-    margin-top: 0.3%;
+    margin-top: 0%;
 }
 
 /* FIRM TRAINER */
@@ -2522,17 +2835,22 @@ header h1 span{
 
 .staff-dashboard-home-pan th{
     border-bottom: 2px solid #000;
-    padding: 4px;
+    padding: 2px;
+    font-size: 14px;
     font-weight: 400;
 }
 
 .staff-dashboard-home-pan td a{
     color: #0000FF;
 }
+.staff-dashboard-home-pan tr:hover{
+    box-shadow: 0 0 4px rgba(0,0,0,0.4);
+}
 
 .staff-dashboard-home-pan td{
     font-weight: 400;
-    font-size: 14px;
+    box-shadow: 0 0 4px rgba(0,0,0,0.2);
+    font-size: 12px;
     text-align: center;
     padding: 10px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -2583,7 +2901,7 @@ header h1 span{
     display: none;
     animation: slowSlide 3s forwards;
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
-    width: 300px;
+    width: 500px;
     height: 200px;
     padding: 10px;
     border-radius: 6px;
@@ -2595,11 +2913,71 @@ header h1 span{
 
 .submit-attendance{
     width: 80px;
-    background-color: green;
+    background-color: #007BFF;
     padding: 6px;
     color: #FFFFFF;
     border-radius: 4px;
+    margin-left: 40%;
+    float: none;
     cursor: pointer;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.load-task-pna-form{
+    background-color: orange;
+    color: #FFFFFF;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    float: left;
+    border-radius: 4px;
+    padding: 6px;
+    cursor: pointer;
+}
+
+@keyframes slowLySlide{
+    from{
+        opacity: 0;
+        transform: translateY(0%);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(1%);
+    }
+}
+
+.set-up-task-plan{
+    animation: slowLySlide 3s forwards;
+    width: 50%;
+    display: none;
+}
+.set-up-task-plan input{
+    border: 1px solid #000;
+    padding: 6px;
+    width: 100%;
+    border-radius: 4px;
+}
+.set-up-task-plan label{
+    float: left;
+    font-weight: 400;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.set-up-task-plan .submit-task-plan{
+    float: left;
+    background-color: #007BFF;
+    color: #FFFFFF;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 6px;
+    width: 120px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.view-task-plans{
+    float: left;
+    padding: 6px;
+    cursor: pointer;
+    border-radius: 4px;
+    background-color: orange;
+    color: #FFFFFF;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -2607,9 +2985,9 @@ header h1 span{
 .upload-evaluation-form{
     display: none;
     position: absolute;
-    left: 22%;
+    left: 20.5%;
     top: 50%;
-    width: 75%;
+    width: 79%;
     box-shadow: 0 0 10px rgba(0,0,0,0.4);
     border-radius: 6px;
     padding: 10px;
@@ -2622,6 +3000,29 @@ header h1 span{
     border: none;
     border-bottom: 2px solid #000;
     width: 500px;
+}
+
+.upload-evaluation-form-on{
+    display: none;
+    position: absolute;
+    left: 22%;
+    top: 42%;
+    width: 75%;
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    border-radius: 6px;
+    padding: 10px;
+    animation: slowInside 3s forwards;
+}
+.upload-evaluation-form-on input{
+    padding: 6px;
+    background-color: inherit;
+    border: none;
+    border-bottom: 2px solid #000;
+    width: 500px;
+}
+
+.activate{
+    display: block;
 }
 .heading-component{
     font-weight: 400;
@@ -2677,6 +3078,53 @@ header h1 span{
 
 .message-sent{
     padding:10px;
+}
+
+/*VIEW MY SELECTIONS*/
+.application-viewable{
+    width: 100%;
+}
+
+.application-viewable img{
+    width: 45px;
+    height: 45px;
+}
+.application-viewable th{
+    font-weight: 400;
+    font-size: 15px;
+    padding: 4px;
+    border-bottom: 2px solid #000;
+}
+.application-viewable td{
+    font-size: 14px;
+    cursor: pointer;
+    text-align: center;
+    box-shadow: 0 0 4px rgba(0,0,0,0.2);
+    padding: 4px;
+}
+.application-viewable tr:hover{
+    box-shadow: 0 0 4px rgba(0,0,0,0.2);
+}
+
+.approved{
+    background-color: green;
+    color: #FFFFFF;
+    border-radius: 4px;
+}
+
+.nun-approved{
+    background-color: #333;
+    color: #FFFFFF;
+    border-radius: 4px;
+}
+.hil-linkage-dashboard{
+    width: 79.7%;
+    margin-left: 20%;
+    padding: 10px;
+    height: 600px;
+    margin-top: 0.3%;
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    border-radius: 4px;
 }
 
 
@@ -3157,5 +3605,21 @@ header h1 span{
         padding: 6px;
         width: 100px;
         font-size: 12px;
+    }
+    #academic-year-status{
+        width: 100%;
+        margin-left: -5%;
+        padding: 2px;
+        height: 30px;
+        float: none;
+    }
+    #academic-year-status p{
+        font-size: 12px;
+    }
+    .group-analytics-data #lineChart{
+        box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        height: 100px;
+        margin-top: 10%;
+        width: 100%;
     }
 }

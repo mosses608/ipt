@@ -152,6 +152,8 @@ Route::get('/staffs/ipt-allocation', [Controller::class, 'allocations']);
 
 Route::get('/staffs/view-allocations/{student}', [Controller::class, 'view_allocations']);
 
+Route::get('/staffs/feedbacks', [Controller::class, 'feedbacks_data']);
+
 Route::get('/hrs/send-feedbacks', [Controller::class, 'send_students_feedbacks']);
 
 Route::post('/studentfeedbacks', [Controller::class, 'store_students_feedbacks']);
@@ -181,3 +183,69 @@ Route::get('/trainers/single-evaluation/{student}', [Controller::class, 'evaluat
 Route::post('/evaluations', [Controller::class, 'store_evaluations']);
 
 Route::get('/hod/hod-dashboard', [Controller::class, 'hod_dashboard']);
+
+Route::get('/student/task-plan', [Controller::class, 'task_plan']);
+
+Route::get('/trainers/task-plans', [Controller::class, 'task_plans_office']);
+
+Route::post('/taskplans', [Controller::class, 'store_task_plans']);
+
+Route::get('/staffs/student-progress', [Controller::class, 'student_progress']);
+
+Route::get('/staffs/view-progress/{student}', [Controller::class, 'progress']);
+
+Route::get('/staffs/student-feedbacks', [Controller::class, 'view_feedbacks']);
+
+Route::get('/staffs/single-assessment/{student}', [Controller::class, 'single_assessment']);
+
+Route::post('/assessments', [Controller::class, 'store_assessments']);
+
+Route::get('/register-hil', [Controller::class, 'linkage'])->middleware('auth');
+
+Route::post('/linkages', [Controller::class, 'store_hil']);
+
+Route::get('/linkage/hil-dashboard', [Controller::class, 'hil_dashboard']);
+
+Route::get('/ipt/assign-instructor', [Controller::class, 'assign_sup']);
+
+Route::get('/ipt/single-assignment/{hod}', [Controller::class, 'single_assign']);
+
+Route::post('/assignments', [Controller::class, 'store_assignments']);
+
+Route::get('/linkage/assigned-supervisors', [Controller::class, 'view_supervisor']);
+
+Route::get('/linkage/field-vaccancy', [Controller::class, 'field_vaccancy']);
+
+Route::post('/fieldvaccancies', [Controller::class, 'store_vaccancies']);
+
+Route::get('/linkage/view-vaccancy', [Controller::class, 'view_vaccancy']);
+
+Route::get('/linkage/view-feedbacks', [Controller::class, 'viewFeedbacks']);
+
+Route::get('/linkage/generate-report', [Controller::class, 'report_hil']);
+
+Route::get('/ipt/vaccancy', [Controller::class, 'view_field_vaccancies']);
+
+Route::get('/hod/assigned-supervisors', [Controller::class, 'asiign_supervisors']);
+
+Route::get('/hod/view-vaccancy', [Controller::class, 'view_field_ipt_vaccancies']);
+
+Route::get('/hod/view-feedbacks', [Controller::class, 'view_all_feedbacks']);
+
+Route::get('/hod/generate-report', [Controller::class, 'hod_report']);
+
+Route::post('/studentmessages', [Controller::class, 'store_students_charts']);
+
+Route::get('/student/upload-permission-form', [Controller::class, 'permission_form']);
+
+Route::post('/permissions', [Controller::class, 'permissionForm']);
+
+Route::get('/principal/principal-dashboard', [Controller::class, 'principal_dashboard']);
+
+Route::get('/principal/view-students', [Controller::class, 'principal_view_students']);
+
+Route::get('/principal/view-staff', [Controller::class, 'principal_view_staffs']);
+
+Route::get('/principal/view-feedbacks', [Controller::class, 'principal_view_feedbacks']);
+
+Route::get('/principal/report', [Controller::class, 'principal_report']);

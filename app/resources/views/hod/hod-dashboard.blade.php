@@ -15,59 +15,24 @@
         <div class="academic-year-status">
             <p>Active Academic Year: <span class="previousYear"></span>/<span class="currentYear"></span></p><br>
         </div><br>
+
+        <div class="container-centered-ajax-lg">
+            <div class="staff-report-db">
+                <h2><i class="fa fa-graduation-cap"></i> <br> Total Students <br> {{count($students)}}</h2>
+            </div>
+            <div class="staff-report-db">
+                <h2><i class="fas fa-user-tie"></i><br> Total Staffs <br> {{count($hods)}}</h2>
+            </div>
+           <div class="staff-report-db">
+                <h2><i class="fas fa-building"></i> <br>Total Departments <br>{{count($departments)}}</h2>
+            </div>
+
+            <div class="staff-report-db">
+                <h2><i class="fas fa-briefcase"></i> <br>Total Firms <br> {{count($firms)}}</h2>
+            </div><br>
+        </div>
     </div>
 
-
-
-
-    <button class="message-action-module" onclick="showMessageBody()"><span style="color: #0000FF;">{{count($messages)}}</span><i class="fa fa-bell"></i></button>
-
-    <div class="message-container-parent">
-        <button onclick="hideMessageBody()" class="hideMessageBody">&times;</button>
-<br>
-        <div class="message-child-content-holder">
-            @if (count($messages) == 0)
-            <p>Message body is empty!</p>
-
-            @else
-
-            @foreach ($messages as $message)
-            <div class="sub-component-container">
-
-                <div class="profile-layout">
-                    <img src="{{$message->profile ? asset('storage/' . auth()->guard('hod')->user()->profile) : asset('images/profile.png')}}" alt="My Profile"><br>
-                    <p>Sender: {{$message->sender_name}}</p>
-                </div><br>
-                <p class="message-sent"><em style="color: #FFFFFF; padding:10px;">{{$message->message}}</em></p>
-            </div><br>
-
-            @endforeach
-            @endif
-        </div>
-        <form action="/messages" method="POST" class="message-sender-class">
-            @csrf
-            <input type="hidden" name="profile" id="" value="{{auth()->guard('hod')->user()->profile}}">
-            <input type="hidden" name="sender_name" id="" value="{{auth()->guard('hod')->user()->full_name}}">
-            <input type="text" name="message" id="" placeholder="Start a message conversation here"><button type="submit"><i class="fa fa-paper-plane"></i></button>
-        </form>
-    </div><br><br>
-
-    <script>
-        function showMessageBody(){
-            document.querySelector('.message-container-parent').style.display='block';
-            document.querySelector('.container-centered-ajax').style.opacity='0';
-            document.querySelector('.group-analytics-data').style.opacity='0';
-
-            /*document.querySelector('.message-sender-class').addEventListener('submit', function(e){
-                e.preventDefault();
-                document.querySelector('.message-child-content-holder').style.display='block';
-            });*/
-        }
-
-        function hideMessageBody(){
-            location.reload();
-        }
-    </script>
 </center>
 
 <script>

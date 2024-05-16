@@ -31,13 +31,13 @@
                 <th>Action</th>
             </tr>
 
-        @foreach ($trainers as $trainer)
+
 
         @foreach ($students as $student)
 
         @foreach ($completeapplications as $apps)
 
-        @if ($student->username == $apps->reg_number && $apps->firm_name == $trainer->company_name)
+        @if ($student->username == $apps->reg_number && $apps->firm_name == Auth::guard('trainer')->user()->company_name)
         <tr>
 
             <td><p class="currentDay"></p></td>
@@ -65,7 +65,7 @@
         @endif
         @endforeach
         @endforeach
-        @endforeach
+
     </table>
     </div>
 </center>

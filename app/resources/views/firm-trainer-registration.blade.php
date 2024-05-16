@@ -10,8 +10,33 @@
 
 <center>
     <form action="/trainers" method="POST" class="firm-trainer-component-ajax">
+
+
+        <p class="head-main-head">Firm Trainer Registration</p><br><br>
+        <div class="academic-year-status" id="academic-year-status">
+            <p>Active Academic Year: <span class="previousYear"></span>/<span class="currentYear"></span></p><br><br>
+        </div><br>
+
+        <script>
+            const currentYear=new Date();
+
+            const yearOption={weekly: 'long' , year: 'numeric'};
+
+            //
+
+            const formattedYear=currentYear.toLocaleDateString('en-US', yearOption);
+
+            //
+
+            document.querySelector('.currentYear').textContent=formattedYear;
+
+            document.querySelector('.previousYear').textContent=formattedYear-1;
+
+            //
+        </script>
+
+
         @csrf
-        <p>Firm Trainers Registration Form</p><br><br>
 
         <div class="left-firm-trainer-sub-form">
             <label for="">Full Name</label><br>

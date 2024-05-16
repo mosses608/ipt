@@ -201,9 +201,21 @@
                 }
             </script>
 
-        <footer>
+        <center>
+            <footer>
+                <h4>IPT Management Portal, Developed by Paschal Mbowe <em class="yearShow"></em></h4>
+            </footer>
+        </center>
 
-        </footer>
+        <script>
+            const showYear=new Date();
+
+            const yearOptions={weekly: 'long' , year: 'numeric'};
+
+            const fomartYear=showYear.toLocaleDateString('en-US',yearOptions);
+
+            document.querySelector('.yearShow').textContent=fomartYear;
+        </script>
         </div>
     </body>
 </html>

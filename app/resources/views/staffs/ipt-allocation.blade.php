@@ -65,7 +65,7 @@
                     <td style="color: #0000FF; cursor:pointer; font-size:14px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Not Assigned</td>
                     @endif
 
-                    @foreach ($compeleteapplications as $apps)
+                    @foreach ($completeapplications as $apps)
                     @if ($apps->reg_number == $student->username)
 
                     <td>{{$apps->firm_name}}</td>
@@ -99,11 +99,13 @@
 
     </div>
 
+    <!--
     <div class="search-single-lg">
         <form action="/ipt/student-listing" method="GET">
             <input type="text" name="search" id="" placeholder="Search about student or supervisor"> <button type="submit"><i class="fas fa-search"></i></button>
         </form>
     </div>
+-->
 
 </center>
 

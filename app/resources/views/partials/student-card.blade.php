@@ -8,6 +8,7 @@
         <a href="/student/apply"><i class="fas fa-check"></i>
  Apply</a>
  <a href="/student/view-application"><i class="fas fa-eye"></i> My Selections</a>
+ <a href="/student/upload-permission-form"><i class="fas fa-chevron-right"></i> Permission Form</a>
     </div>
 
 

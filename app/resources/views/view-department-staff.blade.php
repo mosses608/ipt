@@ -18,6 +18,31 @@
     @endforeach
 
     <div class="container-student-ajax">
+
+        <p class="head-main-head">View Staff</p><br><br>
+        <div class="academic-year-status" id="academic-year-status">
+            <p>Active Academic Year: <span class="previousYear"></span>/<span class="currentYear"></span></p><br>
+        </div><br>
+
+        <script>
+            const currentYear=new Date();
+
+            const yearOption={weekly: 'long' , year: 'numeric'};
+
+            //
+
+            const formattedYear=currentYear.toLocaleDateString('en-US', yearOption);
+
+            //
+
+            document.querySelector('.currentYear').textContent=formattedYear;
+
+            document.querySelector('.previousYear').textContent=formattedYear-1;
+
+            //
+        </script>
+
+
         <table>
             <tr>
                 <th>Role</th><th>Staff Id</th><th>Staff Name</th><th>Phone Number</th><th>College</th><th>Username</th><th>Profile</th><th>Action</th>
@@ -28,7 +53,7 @@
                     @if ($staff->role == '1')
                     <td>HoD</td>
                     @else
-                    <td>Normal Staff</td>
+                    <td>Lecturer</td>
                     @endif
                     <td>{{$staff->employee_id}}</td>
                     <td>{{$staff->full_name}}</td>

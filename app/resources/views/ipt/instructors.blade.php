@@ -18,19 +18,17 @@
                     <th>Instructor Name</th>
                     <th>Phone Number</th>
                     <th>College</th>
-                    <th>Assigned To</th>
+                    <th>Student Assigned</th>
                     <th>Firm Name</th>
                 </tr>
 
                 @foreach ($hods as $staff)
 
-
-
-
+                @foreach ($students as $student)
 
                 <tr>
 
-                    @foreach ($students as $student)
+
 
                     @if ($student->supervisor == $staff->full_name)
                     <td>{{$staff->full_name}}</td>
@@ -52,13 +50,11 @@
 
                     @endif
 
-                    @endforeach
+
 
 
                 </tr>
-
-
-
+                @endforeach
 
                 @endforeach
 
@@ -66,11 +62,11 @@
 
             </table>
 
-            <div class="search-single-lg">
+            <!--<div class="search-single-lg">
                 <form action="/ipt/instructors" method="GET">
                     <input type="number" name="search" id="" placeholder="Search by registration number"> <button type="submit"><i class="fas fa-search"></i></button>
                 </form>
-            </div>
+            </div>-->
 
         </div>
 

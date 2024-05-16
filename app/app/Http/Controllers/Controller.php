@@ -26,14 +26,23 @@ use App\Models\Message;
 use App\Models\Vacancy;
 use App\Models\Completeapplication;
 use App\Models\Activity;
+use App\Models\Assessment;
+use App\Models\Assignment;
 use App\Models\Attendance;
 use App\Models\Coordinator;
 use App\Models\Evaluation;
 use App\Models\Feedback;
+use App\Models\Fieldvaccancie;
+use App\Models\Fieldvaccancy;
+use App\Models\Linkage;
+use App\Models\Permission;
 use App\Models\Report;
 use App\Models\Summary;
 use App\Models\Studentfeedback;
+use App\Models\Studentmessage;
+use App\Models\Taskplan;
 use Illuminate\Support\Facades\Auth;
+use Dompdf\Dompdf;
 
 
 
@@ -46,7 +55,10 @@ class Controller extends BaseController
     }
 
     public function register_firm(){
-        return view('registerfirm');
+        return view('registerfirm',[
+            'messages' => Message::all(),
+            'studentmessages' => Studentmessage::all(),
+        ]);
     }
 
     public function admin_dashboard(){
@@ -114,7 +126,9 @@ class Controller extends BaseController
             'messages' => Message::all(),
             'firms' => Firm::all(),
             'students' => Student::all(),
+            'studentmessages' => Studentmessage::all(),
             'vacancies' => Vacancy::all(),
+            'completeapplications' => Completeapplication::latest()->paginate(3),
         ]);
     }
 
@@ -126,34 +140,43 @@ class Controller extends BaseController
 
         if(Auth::guard('web')->attempt($logincredentials)){
 
+            $request->session()->regenerateToken();
+
             return redirect('/admin_dashboard')->with('message','Admin logged in successfully');
 
         }else if (Auth::guard('student')->attempt($logincredentials)) {
             //dd('Student logged in successfully');
 
             //return redirect('/admin_dashboard');
+            $request->session()->regenerateToken();
 
             return redirect('/student/student-dashboard')->with('student_login', 'Student logged in successfully');
 
         }else if(Auth::guard('coordinator')->attempt($logincredentials)){
 
             //echo 'Mohammed Abdallah';
+            $request->session()->regenerateToken();
 
             return redirect('/ipt/coordinator-dashboard')->with('ipt_coordinator_login','IPT Coordinator logged in successfully');
 
         }else if(Auth::guard('hr')->attempt($logincredentials)){
 
             //echo 'Mohammed Abdallah';
+            $request->session()->regenerateToken();
 
             return redirect('/hrs/hr-dashboard')->with('hr_login','Firm HR logged in successfully');
         }
 
         else if(Auth::guard('hod')->attempt($logincredentials) && Auth::guard('hod')->user()->role == '0'){
 
+            $request->session()->regenerateToken();
+
             return redirect('/staffs/staff-dashboard')->with('staff_login','Staff logged in successfully');
 
         }
         else if(Auth::guard('hod')->attempt($logincredentials) && Auth::guard('hod')->user()->role == '1'){
+
+            $request->session()->regenerateToken();
 
             return redirect('/hod/hod-dashboard')->with('staff_hod_success','HoD logged in successfully');
         }
@@ -161,17 +184,31 @@ class Controller extends BaseController
 
         else if(Auth::guard('trainer')->attempt($logincredentials)){
 
+            $request->session()->regenerateToken();
+
             return redirect('/trainers/trainer-dashboard')->with('trainer_login','Firm trainer looged in successfully');
         }
 
-        /*else if(Auth::guard('hod')->attempt($logincredentials) && Auth::guard('hod')->user()->role == '0'){
+        else if(Auth::guard('linkage')->attempt($logincredentials)){
 
-            return redirect('/hod/hod-dashboard')->with('hod_success','HoD logged in successfully');
+            $request->session()->regenerateToken();
 
-        }*/
+            //dd($request);
+
+            return redirect('/linkage/hil-dashboard')->with('hil_login_message','HIL Logged in successfully');
+        }
+        elseif(Auth::guard('principal')->attempt($logincredentials)){
+
+            $request->session()->regenerateToken();
+
+            return redirect('/principal/principal-dashboard')->with('principal_login','College principal logged in successfully');
+
+        }
 
         else{
+
             return redirect()->back()->with('error','Incorrect username or password!!!');
+
         }
     }
 
@@ -188,6 +225,7 @@ class Controller extends BaseController
             'messages' => Message::all(),
             'completeapplications' => Completeapplication::latest()->paginate(3),
             'students' => Student::all(),
+            'studentmessages' => Studentmessage::all(),
         ]);
     }
 
@@ -196,6 +234,7 @@ class Controller extends BaseController
             'messages' => Message::all(),
             'completeapplications' => Completeapplication::latest()->paginate(3),
             'students' => Student::all(),
+            'studentmessages' => Studentmessage::all(),
         ]);
     }
 
@@ -205,6 +244,7 @@ class Controller extends BaseController
             'colleges' => College::latest()->filter(request(['search']))->paginate(4),
             'completeapplications' => Completeapplication::latest()->paginate(3),
             'students' => Student::all(),
+            'studentmessages' => Studentmessage::all(),
         ]);
     }
 
@@ -255,6 +295,7 @@ class Controller extends BaseController
             'messages' => Message::all(),
             'completeapplications' => Completeapplication::latest()->paginate(3),
             'students' => Student::all(),
+            'studentmessages' => Studentmessage::all(),
         ]);
     }
 
@@ -310,6 +351,7 @@ class Controller extends BaseController
             'messages' => Message::all(),
             'completeapplications' => Completeapplication::latest()->paginate(3),
             'students' => Student::all(),
+            'studentmessages' => Studentmessage::all(),
         ]);
     }
 
@@ -367,6 +409,7 @@ class Controller extends BaseController
             'messages' => Message::all(),
             'completeapplications' => Completeapplication::latest()->paginate(3),
             'students' => Student::all(),
+            'studentmessages' => Studentmessage::all(),
         ]);
     }
 
@@ -374,6 +417,7 @@ class Controller extends BaseController
         return view('register-course',[
             'colleges' => College::all(),
             'departments' => Department::all(),
+            'studentmessages' => Studentmessage::all(),
             'messages' => Message::all(),
             'completeapplications' => Completeapplication::latest()->paginate(3),
             'students' => Student::all(),
@@ -415,6 +459,7 @@ class Controller extends BaseController
 
     public function view_all_students(){
         return view('view-students',[
+            'studentmessages' => Studentmessage::all(),
             'students' => Student::latest()->filter(request(['search']))->paginate(10),
             'messages' => Message::all(),
             'completeapplications' => Completeapplication::latest()->paginate(3),
@@ -425,6 +470,7 @@ class Controller extends BaseController
         return view('register-staff',[
             'colleges' => College::all(),
             'messages' => Message::all(),
+            'studentmessages' => Studentmessage::all(),
             'completeapplications' => Completeapplication::latest()->paginate(3),
             'students' => Student::all(),
         ]);
@@ -438,6 +484,7 @@ class Controller extends BaseController
             'employee_id' => 'required',
             'college' => 'required',
             'username' => ['required', Rule::unique('hods','username')],
+            'department' => 'required',
             'password' => 'required',
             'profile' => 'required',
         ]);
@@ -457,6 +504,7 @@ class Controller extends BaseController
             'messages' => Message::all(),
             'completeapplications' => Completeapplication::latest()->paginate(3),
             'students' => Student::all(),
+            'studentmessages' => Studentmessage::all(),
         ]);
     }
 
@@ -464,6 +512,7 @@ class Controller extends BaseController
         return view('departent-management',[
             'hods' => Hod::all(),
             'messages' => Message::all(),
+            'studentmessages' => Studentmessage::all(),
             'completeapplications' => Completeapplication::latest()->paginate(3),
             'students' => Student::all(),
         ]);
@@ -486,6 +535,8 @@ class Controller extends BaseController
             'messages' => Message::all(),
             'completeapplications' => Completeapplication::latest()->paginate(3),
             'students' => Student::all(),
+            'firms' => Firm::all(),
+            'studentmessages' => Studentmessage::all(),
         ]);
     }
 
@@ -493,6 +544,7 @@ class Controller extends BaseController
         return view('firm-trainer-registration',[
             'messages' => Message::all(),
             'firms' => Firm::all(),
+            'studentmessages' => Studentmessage::all(),
             'completeapplications' => Completeapplication::latest()->paginate(3),
             'students' => Student::all(),
         ]);
@@ -502,6 +554,7 @@ class Controller extends BaseController
         return view('firm-departments',[
             'firms' => Firm::all(),
             'messages' => Message::all(),
+            'studentmessages' => Studentmessage::all(),
             'completeapplications' => Completeapplication::latest()->paginate(3),
             'students' => Student::all(),
         ]);
@@ -514,6 +567,7 @@ class Controller extends BaseController
             'messages' => Message::all(),
             'completeapplications' => Completeapplication::latest()->paginate(3),
             'students' => Student::all(),
+            'studentmessages' => Studentmessage::all(),
         ]);
     }
 
@@ -535,8 +589,10 @@ class Controller extends BaseController
     public function firm_registration(){
         return view('firm-registration',[
             'messages' => Message::all(),
+            'studentmessages' => Studentmessage::all(),
             'completeapplications' => Completeapplication::latest()->paginate(3),
             'students' => Student::all(),
+            'firms' => Firm::all(),
         ]);
     }
 
@@ -574,6 +630,7 @@ class Controller extends BaseController
 
     public function view_firms(){
         return view('view-firms',[
+            'studentmessages' => Studentmessage::all(),
             'firms' => Firm::latest()->filter(request(['search']))->paginate(10),
             'messages' => Message::all(),
             'completeapplications' => Completeapplication::latest()->paginate(3),
@@ -609,6 +666,7 @@ class Controller extends BaseController
     public function apply(){
         return view('student.apply',[
             'messages' => Message::all(),
+            'studentmessages' => Studentmessage::all(),
             'firms' => Firm::all(),
             'firmdepartments' => Firmdepartment::all(),
             'vacancies' => Vacancy::all(),
@@ -621,6 +679,7 @@ class Controller extends BaseController
     public function report(){
         return view('admin-report',[
             'messages' => Message::all(),
+            'studentmessages' => Studentmessage::all(),
             'firms' => Firm::all(),
             'firmdepartments' => Firmdepartment::all(),
             'vacancies' => Vacancy::all(),
@@ -632,7 +691,7 @@ class Controller extends BaseController
 
     public function vacancy(Request $request){
         $vacancyField=$request->validate([
-            'firm_name' => ['required', Rule::unique('vacancies','firm_name')],
+            'firm_name' => 'required',
             'vacancy_number' => 'required',
             'maleValue' => 'required',
             'femaleValue' => 'required',
@@ -646,7 +705,7 @@ class Controller extends BaseController
 
     public function store_applications(Request $request){
         $applicationFields=$request->validate([
-            'reg_no' => ['required', Rule::unique('applications','reg_no')],
+            'reg_no' => 'required',
             'academic_year' => 'nullable',
             'firm_name' => 'nullable',
             'firm_location' => 'nullable',
@@ -662,12 +721,13 @@ class Controller extends BaseController
 
     public function store_student_applications(Request $request){
         $studentApplications=$request->validate([
-            'reg_number' => ['required', Rule::unique('completeapplications','reg_number')],
+            'reg_number' => 'required',
             'gender1' => 'nullable',
             'gender2' => 'nullable',
             'firm_name' => 'required',
             'academic_year' => 'nullable',
             'action' => 'required',
+            'studentmessages' => Studentmessage::all(),
         ]);
 
         Completeapplication::create($studentApplications);
@@ -678,15 +738,19 @@ class Controller extends BaseController
     public function view_applications(){
         return view('student.view-application',[
             'messages' => Message::all(),
-            //'completeapplications' => Completeapplication::latest()->paginate(3),
+            'completeapplications' => Completeapplication::all(),
+            'students' => Student::all(),
+            'studentmessages' => Studentmessage::all(),
         ]);
     }
 
     public function new_activity(){
         return view('student.add-daily-activity',[
             'messages' => Message::all(),
-            'completeapplications' => Completeapplication::all(),
+            'completeapplications' => Completeapplication::latest()->paginate(3),
             'activities' => Activity::latest()->paginate(1),
+            'students' => Student::all(),
+            'studentmessages' => Studentmessage::all(),
         ]);
     }
 
@@ -727,6 +791,18 @@ class Controller extends BaseController
     public function weekly_summary(){
         return view('student.add-weekly-summary',[
             'messages' => Message::all(),
+            'studentmessages' => Studentmessage::all(),
+            'completeapplications' => Completeapplication::all(),
+            'students' => Student::all(),
+        ]);
+    }
+
+    public function permission_form(){
+        return view('student.upload-permission-form',[
+            'messages' => Message::all(),
+            'studentmessages' => Studentmessage::all(),
+            'completeapplications' => Completeapplication::all(),
+            'students' => Student::all(),
         ]);
     }
 
@@ -745,6 +821,10 @@ class Controller extends BaseController
     public function field_report(){
         return view('student.upload-field-report',[
             'messages' => Message::all(),
+            'studentmessages' => Studentmessage::all(),
+            'completeapplications' => Completeapplication::latest()->paginate(3),
+            'activities' => Activity::latest()->paginate(1),
+            'students' => Student::all(),
         ]);
     }
 
@@ -762,7 +842,11 @@ class Controller extends BaseController
 
     public function reports(){
         return view('student.feedbacks',[
+            'studentmessages' => Studentmessage::all(),
             'messages' => Message::all(),
+            'completeapplications' => Completeapplication::latest()->paginate(3),
+            'activities' => Activity::latest()->paginate(1),
+            'students' => Student::all(),
         ]);
     }
 
@@ -781,7 +865,11 @@ class Controller extends BaseController
     public function ipt_coordinator(){
         return view('register-ipt-cordinator',[
             'messages' => Message::all(),
+            'studentmessages' => Studentmessage::all(),
             'departments' => Department::all(),
+            'completeapplications' => Completeapplication::latest()->paginate(3),
+            'activities' => Activity::latest()->paginate(1),
+            'students' => Student::all(),
         ]);
     }
 
@@ -809,16 +897,21 @@ class Controller extends BaseController
             'firms' => Firm::all(),
             'students' => Student::all(),
             'vacancies' => Vacancy::all('id'),
+            'studentmessages' => Studentmessage::all(),
             'hods' => Hod::all(),
+            'completeapplications' => Completeapplication::latest()->paginate(3),
         ]);
     }
 
     public function listings(){
         return view('ipt.student-listing',[
             'messages' => Message::all(),
-            'students' => Student::latest()->filter(request(['search']))->paginate(5),
+            'firms' => Firm::all(),
+            'students' => Student::all(),
+            'vacancies' => Vacancy::all('id'),
+            'studentmessages' => Studentmessage::all(),
             'hods' => Hod::all(),
-            'compeleteapplications' => Completeapplication::latest()->filter(request(['search']))->get(),
+            'completeapplications' => Completeapplication::all(),
         ]);
     }
 
@@ -827,8 +920,12 @@ class Controller extends BaseController
             'summaries' => Summary::latest()->paginate(1),
             'messages' => Message::all(),
             'student' => Student::single($id),
+            'studentmessages' => Studentmessage::all(),
             'hods' => Hod::all(),
+            'students' => Student::all(),
             'activities' => Activity::latest()->paginate(1),
+            'completeapplications' => Completeapplication::all(),
+            'assignments' => Assignment::all(),
         ]);
     }
 
@@ -846,6 +943,7 @@ class Controller extends BaseController
         return view('ipt.instructors',[
             'messages' => Message::all(),
             'students' => Student::all(),
+            'studentmessages' => Studentmessage::all(),
             'firms' => Firm::all(),
             'hods' => HoD::paginate(10),
             'completeapplications' => Completeapplication::all(),
@@ -854,8 +952,32 @@ class Controller extends BaseController
 
     public function generate_report(){
         return view('ipt.generate-report',[
+            'summaries' => Summary::latest()->paginate(1),
             'messages' => Message::all(),
+            'hods' => Hod::all(),
+            'studentmessages' => Studentmessage::all(),
+            'students' => Student::all(),
+            'activities' => Activity::latest()->paginate(1),
+            'completeapplications' => Completeapplication::all(),
         ]);
+
+        $html = view('ipt.generate-report')->render();
+
+        // Create a new Dompdf instance
+        $dompdf = new Dompdf();
+
+        // Load HTML content into Dompdf
+        $dompdf->loadHtml($html);
+
+        // Set paper size and orientation
+        $dompdf->setPaper('A4', 'portrait');
+
+        // Render PDF (generate)
+        $dompdf->render();
+
+        // Output PDF content
+        return $dompdf->stream('document.pdf');
+
     }
 
     public function hr_dashboard(){
@@ -863,6 +985,7 @@ class Controller extends BaseController
             'messages' => Message::all(),
             'students' => Student::paginate(10),
             'applications' => Application::all(),
+            'studentmessages' => Studentmessage::all(),
             'completeapplications' => Completeapplication::latest()->filter(request(['search']))->get(),
         ]);
     }
@@ -881,6 +1004,8 @@ class Controller extends BaseController
         return view('hrs.show-single',[
             'student' => Student::single_show($id),
             'messages' => Message::all(),
+            'students' => Student::all(),
+            'studentmessages' => Studentmessage::all(),
             'completeapplications' => Completeapplication::all(),
         ]);
     }
@@ -888,23 +1013,29 @@ class Controller extends BaseController
     public function send_students_feedbacks(){
         return view('hrs.send-feedbacks',[
             'messages' => Message::all(),
+            'studentmessages' => Studentmessage::all(),
+            'completeapplications' => Completeapplication::all(),
+            'students' => Student::all(),
         ]);
     }
 
     public function staff_dashboard(){
         return view('staffs.staff-dashboard',[
             'messages' => Message::all(),
+            'studentmessages' => Studentmessage::all(),
             'firms' => Firm::all(),
             'students' => Student::all(),
             'hods' => Hod::all(),
+            'completeapplications' => Completeapplication::latest()->paginate(3),
         ]);
     }
 
     public function allocations(){
         return view('staffs.ipt-allocation',[
             'messages' => Message::all(),
+            'studentmessages' => Studentmessage::all(),
             'hods' => Hod::all(),
-            'compeleteapplications' => Completeapplication::all(),
+            'completeapplications' => Completeapplication::all(),
             'students' => Student::paginate(10),
             'applications' => Application::all(),
         ]);
@@ -917,6 +1048,10 @@ class Controller extends BaseController
             'student' => Student::single($id),
             'hods' => Hod::all(),
             'activities' => Activity::latest()->paginate(1),
+            'completeapplications' => Completeapplication::all(),
+            'students' => Student::paginate(10),
+            'studentmessages' => Studentmessage::all(),
+            'applications' => Application::all(),
         ]);
     }
 
@@ -935,30 +1070,48 @@ class Controller extends BaseController
         return view('hrs.view-feedbacks',[
             'messages' => Message::all(),
             'feedbacks' => Feedback::paginate(5),
+            'completeapplications' => Completeapplication::all(),
+            'students' => Student::paginate(10),
+            'applications' => Application::all(),
+            'studentmessages' => Studentmessage::all(),
         ]);
     }
 
     public function report_hr(){
         return view('hrs.generate-report',[
             'messages' => Message::all(),
+            'completeapplications' => Completeapplication::all(),
+            'students' => Student::paginate(10),
+            'studentmessages' => Studentmessage::all(),
+            'applications' => Application::all(),
         ]);
     }
 
     public function assessment_evaluation(){
         return view('staffs.assessments_evaluation',[
             'messages' => Message::all(),
+            'completeapplications' => Completeapplication::all(),
+            'students' => Student::paginate(10),
+            'applications' => Application::all(),
+            'studentmessages' => Studentmessage::all(),
+            'hods' => Hod::all(),
         ]);
     }
 
     public function trainer_dashboard(){
         return view('trainers.trainer-dashboard',[
             'messages' => Message::all(),
+            'studentmessages' => Studentmessage::all(),
+            'completeapplications' => Completeapplication::all(),
+            'students' => Student::paginate(10),
+            'applications' => Application::all(),
         ]);
     }
 
     public function attendance(){
         return view('trainers.attendance',[
             'messages' => Message::all(),
+            'studentmessages' => Studentmessage::all(),
             'students' => Student::all(),
             'completeapplications' => Completeapplication::all(),
             'trainers' => Trainer::all(),
@@ -968,6 +1121,7 @@ class Controller extends BaseController
     public function activities(){
         return view('trainers.activities',[
             'messages' => Message::all(),
+            'studentmessages' => Studentmessage::all(),
             'students' => Student::all(),
             'completeapplications' => Completeapplication::all(),
             'trainers' => Trainer::all(),
@@ -979,18 +1133,22 @@ class Controller extends BaseController
             'student' => Student::find_activity($id),
             'completeapplications' => Completeapplication::all(),
             'trainers' => Trainer::all(),
+            'studentmessages' => Studentmessage::all(),
             'messages' => Message::all(),
             'activities' => Activity::latest()->paginate(1),
             'summaries' => Summary::latest()->paginate(1),
+            'students' => Student::all(),
         ]);
     }
 
     public function single_attendance($id){
         return view('trainers.single-attendance',[
             'messages' => Message::all(),
+            'studentmessages' => Studentmessage::all(),
             'student' => Student::single_attendance($id),
             'completeapplications' => Completeapplication::all(),
             'trainers' => Trainer::all(),
+            'students' => Student::all(),
         ]);
     }
 
@@ -1017,6 +1175,7 @@ class Controller extends BaseController
             'completeapplications' => Completeapplication::all(),
             'trainers' => Trainer::all(),
             'messages' => Message::all(),
+            'studentmessages' => Studentmessage::all(),
             'activities' => Activity::latest()->paginate(1),
             'summaries' => Summary::latest()->paginate(1),
         ]);
@@ -1028,9 +1187,11 @@ class Controller extends BaseController
             'completeapplications' => Completeapplication::all(),
             'trainers' => Trainer::all(),
             'messages' => Message::all(),
+            'studentmessages' => Studentmessage::all(),
             'activities' => Activity::latest()->paginate(1),
             'summaries' => Summary::latest()->paginate(1),
             'evaluations' => Evaluation::all(),
+            'students' => Student::all(),
         ]);
     }
 
@@ -1067,7 +1228,554 @@ class Controller extends BaseController
 
     public function hod_dashboard(){
         return view('hod.hod-dashboard',[
+            'studentfeedbacks' => Studentfeedback::paginate(5),
             'messages' => Message::all(),
+            'students' => Student::all(),
+            'completeapplications' => Completeapplication::latest()->paginate(3),
+            'hods' => Hod::all(),
+            'colleges' => College::all(),
+            'studentmessages' => Studentmessage::all(),
+            'firms' => Firm::all(),
+            'departments' => Department::all(),
+            'assignments' => Assignment::all(),
+            'fieldvaccancies' => Fieldvaccancy::all(),
         ]);
     }
+
+    public function task_plan(){
+        return view('student.task-plan',[
+            'studentmessages' => Studentmessage::all(),
+            'messages' => Message::all(),
+            'students' => Student::all(),
+            'completeapplications' => Completeapplication::latest()->paginate(3),
+            'taskplans' => Taskplan::all(),
+            'firms' => Firm::all(),
+        ]);
+    }
+
+    public function task_plans_office(){
+        return view('trainers.task-plans',[
+            'messages' => Message::all(),
+            'studentmessages' => Studentmessage::all(),
+            'students' => Student::all(),
+            'completeapplications' => Completeapplication::all(),
+            'firms' => Firm::all(),
+            'taskplans' => Taskplan::all(),
+        ]);
+    }
+
+    public function store_task_plans(Request $request){
+        $taskPlan=$request->validate([
+            'date_day' => 'required',
+            'task' => 'required',
+            'tools' => 'required',
+            'supervisor' => 'required',
+            'company' => 'required',
+        ]);
+
+        Taskplan::create($taskPlan);
+
+        return redirect()->back()->with('task_plan','Taks plan posted successfully');
+    }
+
+    public function feedbacks_data(){
+        return view('staffs.feedbacks',[
+            'messages' => Message::all(),
+            'studentmessages' => Studentmessage::all(),
+            'students' => Student::all(),
+            'completeapplications' => Completeapplication::all(),
+            'firms' => Firm::all(),
+            'taskplans' => Taskplan::all(),
+            'studentfeedbacks' => Studentfeedback::all(),
+        ]);
+    }
+
+    public function student_progress(){
+        return view('staffs.student-progress',[
+            'messages' => Message::all(),
+            'students' => Student::all(),
+            'completeapplications' => Completeapplication::all(),
+            'firms' => Firm::all(),
+            'studentmessages' => Studentmessage::all(),
+            'taskplans' => Taskplan::all(),
+            'studentfeedbacks' => Studentfeedback::all(),
+            'hods' => Hod::all(),
+        ]);
+    }
+
+    public function progress($id)
+{
+    $evaluations = Evaluation::all();
+
+        // Calculate total score for each student
+        $totalScores = $evaluations->groupBy('student_name')->map(function ($group) {
+            return $group->sum(function ($evaluation) {
+                return $evaluation->score1 + $evaluation->score2 + $evaluation->score3
+                     + $evaluation->score4 + $evaluation->score5 + $evaluation->score6
+                     + $evaluation->score7 + $evaluation->score8 + $evaluation->score9
+                     + $evaluation->score10;
+            });
+        });
+
+        // Get student names and total scores
+        $studentNames = $totalScores->keys()->toArray();
+        $scores = $totalScores->values()->toArray();
+
+
+    return view('staffs.view-progress', [
+        'student' => Student::progress($id),
+        'evaluations' => $evaluations,
+        'messages' => Message::all(),
+        'students' => Student::all(),
+        'completeapplications' => Completeapplication::all(),
+        'firms' => Firm::all(),
+        'studentmessages' => Studentmessage::all(),
+        'taskplans' => Taskplan::all(),
+        'studentfeedbacks' => Studentfeedback::all(),
+        'hods' => Hod::all(),
+    ], compact('studentNames', 'scores'));
+}
+
+public function view_feedbacks(){
+    return view('staffs.student-feedbacks',[
+        'evaluations' => Evaluation::all(),
+        'messages' => Message::all(),
+        'studentmessages' => Studentmessage::all(),
+        'students' => Student::all(),
+        'completeapplications' => Completeapplication::all(),
+        'firms' => Firm::all(),
+        'taskplans' => Taskplan::all(),
+        'studentfeedbacks' => Studentfeedback::all(),
+        'hods' => Hod::all(),
+        'assessments' => Assessment::all(),
+    ]);
+}
+
+public function single_assessment($id){
+    return view('staffs.single-assessment',[
+        'student' => Student::find($id),
+        'evaluations' => Evaluation::all(),
+        'messages' => Message::all(),
+        'students' => Student::all(),
+        'studentmessages' => Studentmessage::all(),
+        'completeapplications' => Completeapplication::all(),
+        'firms' => Firm::all(),
+        'taskplans' => Taskplan::all(),
+        'studentfeedbacks' => Studentfeedback::all(),
+        'hods' => Hod::all(),
+        'assessments' => Assessment::all(),
+    ]);
+}
+
+public function store_assessments(Request $request){
+    $assessment=$request->validate([
+        'supervisor' => 'required',
+        'student_name' => 'required',
+        'adm_no' => 'required',
+        'course' => 'required',
+        'department' => 'required',
+        'year' => 'required',
+        'level' => 'required',
+        'firm_name' => 'required',
+        'score1' => 'required',
+        'score2' => 'required',
+        'score3' => 'required',
+        'score4' => 'required',
+        'score5' => 'required',
+        'score6' => 'required',
+        'score7' => 'required',
+        'score8' => 'required',
+        'score9' => 'required',
+        'score10' => 'required',
+    ]);
+
+    Assessment::create($assessment);
+
+    //dd($request);
+
+    return redirect()->back()->with('msg_store','Assessment done successfully');
+}
+
+public function linkage(){
+    return view('register-hil',[
+        'messages' => Message::all(),
+        'students' => Student::all(),
+        'studentmessages' => Studentmessage::all(),
+        'completeapplications' => Completeapplication::latest()->paginate(3),
+    ]);
+}
+
+public function store_hil(Request $request){
+    $hilData=$request->validate([
+        'employee_id' => ['required', Rule::unique('linkages','employee_id')],
+        'full_name' => 'required',
+        'location' => 'required',
+        'phone_number' => ['required', Rule::unique('linkages','phone_number')],
+        'profile' => 'nullable',
+        'username' => ['required', Rule::unique('linkages','username')],
+        'password' => 'required',
+    ]);
+
+    if($request->hasFile('profile')){
+        $hilData['profile'] = $request->file('profile')->store('linkage','public');
+    }
+
+    Linkage::create($hilData);
+
+    //dd($request);
+
+    return redirect()->back()->with('hil_created','HIL registered successfully');
+}
+
+public function hil_dashboard(){
+    return view('linkage.hil-dashboard',[
+        'messages' => Message::all(),
+        'students' => Student::all(),
+        'completeapplications' => Completeapplication::latest()->paginate(3),
+        'hods' => Hod::all(),
+        'colleges' => College::all(),
+        'studentmessages' => Studentmessage::all(),
+        'firms' => Firm::all(),
+        'assignments' => Assignment::all(),
+        'departments' => Department::all(),
+    ]);
+}
+
+public function assign_sup(){
+    return view('ipt.assign-instructor',[
+        'messages' => Message::all(),
+        'students' => Student::all(),
+        'completeapplications' => Completeapplication::latest()->paginate(3),
+        'hods' => Hod::all(),
+        'colleges' => College::all(),
+        'assignments' => Assignment::all(),
+        'firms' => Firm::all(),
+        'studentmessages' => Studentmessage::all(),
+        'departments' => Department::all(),
+    ]);
+}
+
+public function single_assign($id){
+    return view('ipt.single-assignment',[
+        'hod' => Hod::find($id),
+        'messages' => Message::all(),
+        'students' => Student::all(),
+        'completeapplications' => Completeapplication::latest()->paginate(3),
+        'hods' => Hod::all(),
+        'colleges' => College::all(),
+        'firms' => Firm::all(),
+        'studentmessages' => Studentmessage::all(),
+        'departments' => Department::all(),
+        'assignments' => Assignment::all(),
+    ]);
+}
+
+public function store_assignments(Request $request){
+    $assignData=$request->validate([
+        'full_name' => 'required',
+        'role' => 'required',
+        'phone' => ['required', Rule::unique('assignments','phone')],
+        'college' => 'required',
+        'status' => 'required',
+    ]);
+
+    $Assign=Assignment::create($assignData);
+
+    if($Assign){
+        return redirect('/ipt/assign-instructor');
+    }else{
+        return redirect()->back()->with('failed_submit','User already selected');
+    }
+}
+
+public function view_supervisor(){
+    return view('linkage.assigned-supervisors',[
+        'messages' => Message::all(),
+        'students' => Student::all(),
+        'completeapplications' => Completeapplication::latest()->paginate(3),
+        'hods' => Hod::all(),
+        'colleges' => College::all(),
+        'studentmessages' => Studentmessage::all(),
+        'firms' => Firm::all(),
+        'departments' => Department::all(),
+        'assignments' => Assignment::paginate(20),
+    ]);
+}
+
+public function field_vaccancy(){
+    return view('linkage.field-vaccancy',[
+        'messages' => Message::all(),
+        'students' => Student::all(),
+        'completeapplications' => Completeapplication::latest()->paginate(3),
+        'hods' => Hod::all(),
+        'colleges' => College::all(),
+        'studentmessages' => Studentmessage::all(),
+        'firms' => Firm::all(),
+        'departments' => Department::all(),
+        'assignments' => Assignment::all(),
+    ]);
+}
+
+public function store_vaccancies(Request $request){
+    $fieldVaccancy=$request->validate([
+        'college' => ['required', Rule::unique('fieldvaccancies','college')],
+        'vaccany_number' => 'required',
+    ]);
+
+    Fieldvaccancy::create($fieldVaccancy);
+
+    return redirect()->back()->with('vaccancy_posted','Field vaccancy submitted successfully');
+}
+
+public function view_vaccancy(){
+    return view('linkage.view-vaccancy',[
+        'messages' => Message::all(),
+        'students' => Student::all(),
+        'completeapplications' => Completeapplication::latest()->paginate(3),
+        'hods' => Hod::all(),
+        'colleges' => College::all(),
+        'studentmessages' => Studentmessage::all(),
+        'firms' => Firm::all(),
+        'departments' => Department::all(),
+        'assignments' => Assignment::all(),
+        'fieldvaccancies' => Fieldvaccancy::all(),
+    ]);
+}
+
+public function viewFeedbacks(){
+    return view('linkage.view-feedbacks',[
+        'studentfeedbacks' => Studentfeedback::paginate(5),
+        'messages' => Message::all(),
+        'students' => Student::all(),
+        'completeapplications' => Completeapplication::latest()->paginate(3),
+        'hods' => Hod::all(),
+        'colleges' => College::all(),
+        'studentmessages' => Studentmessage::all(),
+        'firms' => Firm::all(),
+        'departments' => Department::all(),
+        'assignments' => Assignment::all(),
+        'fieldvaccancies' => Fieldvaccancy::all(),
+    ]);
+}
+
+public function report_hil(){
+    return view('linkage.generate-report',[
+        'messages' => Message::all(),
+        'students' => Student::all(),
+        'completeapplications' => Completeapplication::latest()->paginate(3),
+        'hods' => Hod::all(),
+        'colleges' => College::all(),
+        'firms' => Firm::all(),
+        'studentmessages' => Studentmessage::all(),
+        'departments' => Department::all(),
+        'assignments' => Assignment::all(),
+        'fieldvaccancies' => Fieldvaccancy::all(),
+    ]);
+}
+
+public function view_field_vaccancies(){
+    return view('ipt.vaccancy',[
+        'messages' => Message::all(),
+        'students' => Student::all(),
+        'completeapplications' => Completeapplication::latest()->paginate(3),
+        'hods' => Hod::all(),
+        'colleges' => College::all(),
+        'firms' => Firm::all(),
+        'studentmessages' => Studentmessage::all(),
+        'departments' => Department::all(),
+        'assignments' => Assignment::all(),
+        'fieldvaccancies' => Fieldvaccancy::paginate(10),
+    ]);
+}
+
+public function asiign_supervisors(){
+    return view('hod.assigned-supervisors',[
+        'messages' => Message::all(),
+        'students' => Student::all(),
+        'completeapplications' => Completeapplication::latest()->paginate(3),
+        'hods' => Hod::all(),
+        'colleges' => College::all(),
+        'studentmessages' => Studentmessage::all(),
+        'firms' => Firm::all(),
+        'departments' => Department::all(),
+        'assignments' => Assignment::all(),
+        'fieldvaccancies' => Fieldvaccancy::paginate(10),
+    ]);
+}
+
+public function view_field_ipt_vaccancies(){
+    return view('hod.view-vaccancy',[
+        'messages' => Message::all(),
+        'students' => Student::all(),
+        'completeapplications' => Completeapplication::latest()->paginate(3),
+        'hods' => Hod::all(),
+        'colleges' => College::all(),
+        'firms' => Firm::all(),
+        'departments' => Department::all(),
+        'studentmessages' => Studentmessage::all(),
+        'assignments' => Assignment::all(),
+        'fieldvaccancies' => Fieldvaccancy::paginate(10),
+    ]);
+}
+
+public function view_all_feedbacks(){
+    return view('hod.view-feedbacks',[
+        'studentfeedbacks' => Studentfeedback::paginate(5),
+        'messages' => Message::all(),
+        'students' => Student::all(),
+        'completeapplications' => Completeapplication::latest()->paginate(3),
+        'hods' => Hod::all(),
+        'colleges' => College::all(),
+        'firms' => Firm::all(),
+        'departments' => Department::all(),
+        'assignments' => Assignment::all(),
+        'fieldvaccancies' => Fieldvaccancy::all(),
+        'studentmessages' => Studentmessage::all(),
+    ]);
+}
+
+public function hod_report(){
+    return view('hod.generate-report',[
+        'studentfeedbacks' => Studentfeedback::paginate(5),
+        'messages' => Message::all(),
+        'students' => Student::all(),
+        'completeapplications' => Completeapplication::latest()->paginate(3),
+        'hods' => Hod::all(),
+        'colleges' => College::all(),
+        'firms' => Firm::all(),
+        'departments' => Department::all(),
+        'assignments' => Assignment::all(),
+        'fieldvaccancies' => Fieldvaccancy::all(),
+        'studentmessages' => Studentmessage::all(),
+    ]);
+}
+
+public function store_students_charts(Request $request){
+    $studentChrts=$request->validate([
+        'profile' => 'required',
+        'sender_name' => 'required',
+        'message' => 'required',
+    ]);
+
+    Studentmessage::create($studentChrts);
+
+    return redirect()->back();
+}
+
+public function permissionForm(Request $request){
+    $permissionForm=$request->validate([
+        'permission' => 'required',
+        'full_name' => 'required',
+        'reg_number' => 'required',
+    ]);
+
+    if($request->hasFile('permission')){
+        $permissionForm['permission'] = $request->files('permission')->store('public','permissions');
+    }
+
+    Permission::create($permissionForm);
+
+    return redirect()->back();
+}
+
+public function principal_dashboard(){
+
+    $completeApplications = Completeapplication::all();
+
+    // Process the data
+    $firmRegistrations = [];
+    foreach ($completeApplications as $application) {
+        $firmName = $application->firm_name;
+        if (!isset($firmRegistrations[$firmName])) {
+            $firmRegistrations[$firmName] = 0;
+        }
+        $firmRegistrations[$firmName]++;
+    }
+
+    // Format data for the chart
+    $labels = [];
+    $data = [];
+    foreach ($firmRegistrations as $firmName => $totalStudents) {
+        $labels[] = $firmName;
+        $data[] = $totalStudents;
+    }
+
+    return view('principal.principal-dashboard', compact('labels', 'data'),[
+        'studentfeedbacks' => Studentfeedback::paginate(5),
+        'messages' => Message::all(),
+        'students' => Student::all(),
+        'completeapplications' => Completeapplication::latest()->paginate(3),
+        'hods' => Hod::all(),
+        'colleges' => College::all(),
+        'firms' => Firm::all(),
+        'departments' => Department::all(),
+        'assignments' => Assignment::all(),
+        'fieldvaccancies' => Fieldvaccancy::all(),
+        'studentmessages' => Studentmessage::all(),
+    ]);
+}
+
+public function principal_view_students(){
+    return view('principal.view-students',[
+        'studentfeedbacks' => Studentfeedback::paginate(5),
+        'messages' => Message::all(),
+        'students' => Student::paginate(10),
+        'completeapplications' => Completeapplication::latest()->paginate(3),
+        'hods' => Hod::all(),
+        'colleges' => College::all(),
+        'firms' => Firm::all(),
+        'departments' => Department::all(),
+        'assignments' => Assignment::all(),
+        'fieldvaccancies' => Fieldvaccancy::all(),
+        'studentmessages' => Studentmessage::all(),
+    ]);
+}
+
+public function principal_view_staffs(){
+    return view('principal.view-staff',[
+        'studentfeedbacks' => Studentfeedback::paginate(5),
+        'messages' => Message::all(),
+        'students' => Student::paginate(10),
+        'completeapplications' => Completeapplication::latest()->paginate(3),
+        'hods' => Hod::paginate(10),
+        'colleges' => College::all(),
+        'firms' => Firm::all(),
+        'departments' => Department::all(),
+        'assignments' => Assignment::all(),
+        'fieldvaccancies' => Fieldvaccancy::all(),
+        'studentmessages' => Studentmessage::all(),
+    ]);
+}
+
+public function principal_view_feedbacks(){
+    return view('principal.view-feedbacks',[
+        'studentfeedbacks' => Studentfeedback::latest()->paginate(5),
+        'messages' => Message::all(),
+        'students' => Student::paginate(10),
+        'completeapplications' => Completeapplication::latest()->paginate(3),
+        'hods' => Hod::paginate(10),
+        'colleges' => College::all(),
+        'firms' => Firm::all(),
+        'departments' => Department::all(),
+        'assignments' => Assignment::all(),
+        'fieldvaccancies' => Fieldvaccancy::all(),
+        'studentmessages' => Studentmessage::all(),
+    ]);
+}
+
+public function principal_report(){
+    return view('principal.report',[
+        'studentfeedbacks' => Studentfeedback::latest()->paginate(5),
+        'messages' => Message::all(),
+        'students' => Student::paginate(10),
+        'completeapplications' => Completeapplication::latest()->paginate(3),
+        'hods' => Hod::paginate(10),
+        'colleges' => College::all(),
+        'firms' => Firm::all(),
+        'departments' => Department::all(),
+        'assignments' => Assignment::all(),
+        'fieldvaccancies' => Fieldvaccancy::all(),
+        'studentmessages' => Studentmessage::all(),
+    ]);
+}
 }

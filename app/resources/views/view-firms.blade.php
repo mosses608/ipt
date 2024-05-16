@@ -13,6 +13,32 @@
     @else
 
 <div class="container-student-ajax">
+
+
+    <p class="head-main-head">View Firms</p><br><br>
+    <div class="academic-year-status" id="academic-year-status">
+        <p>Active Academic Year: <span class="previousYear"></span>/<span class="currentYear"></span></p><br>
+    </div><br>
+
+    <script>
+        const currentYear=new Date();
+
+        const yearOption={weekly: 'long' , year: 'numeric'};
+
+        //
+
+        const formattedYear=currentYear.toLocaleDateString('en-US', yearOption);
+
+        //
+
+        document.querySelector('.currentYear').textContent=formattedYear;
+
+        document.querySelector('.previousYear').textContent=formattedYear-1;
+
+        //
+    </script>
+
+
     <table>
         <tr>
             <th>Firm Name</th><th>Location</th><th>Postal Address</th><th>Firm Type</th><th>Service/Products offered</th><th>Edit</th><th>Delete</th>

@@ -35,13 +35,17 @@
             body {
                 font-family: 'Nunito', sans-serif;
             }
-        </style>
+        </style>showMessageContainerBody
     </head>
     <body class="antialiased">
         <header>
             <h1>IPT MANAGEMENT PORTAL</h1>
-            <p class="message-component"  onclick="showMessageContainerBody()"><span style="color: blue;">{{count($messages)}}</span><i class="fa fa-bell"></i></p>
-            <div class="message-container" onclick="showMyProfile()">
+
+            <button class="message-action-module" onclick="showMessageContainerBody()"><span style="color: #000;">{{count($messages)}}</span><i class="fas fa-comment"></i></button>
+
+            <button class="notification-action-card" onclick="showNotificationBody()"><span style="color: #000;">{{count($completeapplications)}}</span><i class="fa fa-bell"></i></button>
+
+                <div class="message-container" onclick="showMyProfile()">
                 <p><img src="{{auth()->guard('trainer')->user()->profile ? asset('storage/' . auth()->guard('trainer')->user()->profile) : asset('images/profile.png')}}" alt=""><span class="profile-component" style="color: #000;">{{auth()->guard('trainer')->user()->full_name}}</span></p>
             </div>
         </header>
@@ -50,7 +54,7 @@
                 <form action="/signout" method="POST" class="sign-out">
                     <a href="#"> {{auth()->guard('trainer')->user()->full_name}}</a>
                     <a href="#"><i class="fas fa-graduation-cap"></i> Firm Trainer</a><hr><hr>
-                    <a href="/admin-profile"><i class="fa fa-graduation-cap"></i> My Profile</a>
+                    <a href="#"><i class="fa fa-graduation-cap"></i> My Profile</a>
                     <button type="submit"><i class="fa fa-sign-out"></i> Logout</button>
                 </form>
             </div>
@@ -64,6 +68,52 @@
         <main>
             @yield('content')
         </main>
+
+
+        <div class="notification-component-card">
+            <a href="#"><i class="fa fa-eye"></i> All Notifications</a> <a href="#" onclick="closeNotification()" style="float: right; color:red; font-size:16px; padding:10px;">&times;</a><br>
+
+            <div class="single-notification">
+
+            @foreach ($completeapplications as $apps)
+
+
+
+                @foreach ($students as $student)
+                @if ($student->username==$apps->reg_number)
+    <img src="{{$student->profile ? asset('storage/' . $student->profile) : asset('images/profile.png')}}" alt="My Profile">
+    <p><span>{{$student->full_name}}</span> applied for IPT at {{$apps->firm_name}} on {{$apps->created_at}}. <i style="color: orange;">new</i></p>
+                @endif
+
+                @endforeach
+
+
+
+
+            @endforeach
+        </div>
+        </div>
+
+
+
+        <script>
+            function showAdminData(){
+                document.querySelector('.hidden-admin-file').style.display='block';
+            }
+
+            function showNotificationBody(){
+                document.querySelector('.notification-component-card').style.display='block';
+            }
+
+            function hideContent(){
+                location.reload();
+            }
+
+            function closeNotification(){
+                location.reload();
+            }
+        </script>
+
 
 
     <div class="message-container-parent">
@@ -114,6 +164,22 @@
         <div class="image-profile-logo">
             <img src="{{asset('images/logo-profile.jpg')}}" alt="Logo Profile">
             </div>
+
+            <center>
+                <footer>
+                    <h4>IPT Management Portal, Developed by Paschal Mbowe <em class="yearShow"></em></h4>
+                </footer>
+            </center>
+
+            <script>
+                const showYear=new Date();
+
+                const yearOptions={weekly: 'long' , year: 'numeric'};
+
+                const fomartYear=showYear.toLocaleDateString('en-US',yearOptions);
+
+                document.querySelector('.yearShow').textContent=fomartYear;
+            </script>
         </div>
     </body>
 </html>

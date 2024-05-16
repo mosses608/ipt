@@ -9,8 +9,32 @@
 
 <center>
     <form action="/hrs" method="POST" class="firm-hr-reg-lx">
+
+        <p class="head-main-head">Firm HR Registration</p><br><br>
+        <div class="academic-year-status" id="academic-year-status">
+            <p>Active Academic Year: <span class="previousYear"></span>/<span class="currentYear"></span></p><br>
+        </div><br>
+
+        <script>
+            const currentYear=new Date();
+
+            const yearOption={weekly: 'long' , year: 'numeric'};
+
+            //
+
+            const formattedYear=currentYear.toLocaleDateString('en-US', yearOption);
+
+            //
+
+            document.querySelector('.currentYear').textContent=formattedYear;
+
+            document.querySelector('.previousYear').textContent=formattedYear-1;
+
+            //
+        </script>
+
+
         @csrf
-        <p>Firm HR Registration</p><br>
 
         <div class="left-hr-side-pane">
             <label for="">Full Name</label><br>
@@ -25,7 +49,12 @@
             <label for="">Username</label><br>
             <input type="email" name="username" id="" placeholder="Enter HR email as username" value="{{old('username')}}"><br><br>
             <label for="">Company name</label><br>
-            <input type="text" name="company_name" id="" placeholder="Enter company name" value="{{old('company_name')}}"><br><br>
+            <select name="company_name" id="">
+                <option value="//">Choose firm name</option>
+                @foreach ($firms as $firm)
+                <option value="{{$firm->firm_name}}, {{$firm->location}}">{{$firm->firm_name}}, {{$firm->location}}</option>
+                @endforeach
+            </select><br><br>
             <label for="">Password</label><br>
             <input type="password" name="password" id="" placeholder="Strong password is recommended"><br><br>
             <button type="submit">Register</button><br><br>

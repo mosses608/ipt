@@ -60,24 +60,27 @@
         @endforeach
         @endforeach
     </table>
+<br>
+
 
     <form action="/attendances" method="POST" class="upload-attendnce-data">
         @csrf
-        <br><br>
+        <br>
         <input type="hidden" name="reg_number" value="{{$student->username}}">
         <input type="hidden" name="full_name" id="" value="{{$student->full_name}}">
         <input type="hidden" name="programme" id="" value="{{$student->programme}}">
         <input type="hidden" name="department" id="" value="{{$student->department}}">
         <input type="hidden" name="year" id="" value="{{$student->year}}">
         <input type="hidden" name="level" id="" value="{{$student->level}}">
-        <p>Is {{$student->full_name}} present?</p>
-        Yes
+        <!--<p>Is {{$student->full_name}} present?</p>--><br>
+        <label for="">Present</label>
         <input type="radio" name="present" id="" value="present">
-        No
-        <input type="radio" name="absent" id="" value="absent"><br><br>
-        <button type="submit" class="submit-attendance">Submit</button>
+        <label for="">Absent</label>
+        <input type="radio" name="absent" id="" value="absent"><br><br><br>
+        <center><button type="submit" class="submit-attendance">Submit</button></center>
     </form>
-
+    <button class="close-content-displayed" onclick="closeContent()">Close</button><br><br>
+    <br>
     </div>
 </center>
 
@@ -100,6 +103,11 @@
 
     function showAttendanceForm(){
         document.querySelector('.upload-attendnce-data').style.display='block';
+        document.querySelector('.close-content-displayed').style.display='block';
+    }
+
+    function closeContent(){
+        location.reload();
     }
 </script>
 

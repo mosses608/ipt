@@ -12,7 +12,7 @@
         <p class="ipt-parag">IPT Coordinator Dashboard</p><br><br>
         <div class="academic-year-status">
             <p>Active Academic Year: <span class="previousYear"></span>/<span class="currentYear"></span></p><br>
-        </div><br>
+        </div><br><br><br><br>
 
 
         <div class="firm-profile-number-count"><br>

@@ -39,7 +39,7 @@
                     @else
                     <td><button onclick="showUpdateForm()">Assign</button></td>
                     @endif
-                    <td><button onclick="showDailyTasks()"><i class="fa fa-eye"></i> Daily Activity</button> <br> <button class="weekly-summary-button" onclick="showWeeklySummary()"><i class="fa fa-eye"></i> Weekly Summary</button> <button class="permission-button" onclick="showPermissionData()"><i class="fa fa-eye"></i> Permission Form</button></td>
+                    <td class="activity-button"><button onclick="showDailyTasks()">Daily</button> <button class="weekly-summary-button" onclick="showWeeklySummary()">Weekly</button> <button class="permission-button" onclick="showPermissionData()">Permission</button></td>
 
                 </tr>
 
@@ -54,8 +54,8 @@
                 @method('PUT')
                 <label for="">Assign IPT Supervisor</label><select name="supervisor" id="">
                     <option value="//">Choose IPT Supervisor Name</option>
-                    @foreach ($hods as $staff)
-                    <option value="{{$staff->full_name}}">{{$staff->full_name}}</option>
+                    @foreach ($assignments as $assignment)
+                    <option value="{{$assignment->full_name}}">{{$assignment->full_name}}, {{$assignment->college}}</option>
                     @endforeach
                 </select><br><br>
                 <button type="submit" class="assign-act-button">Assign Supervisor</button><br>
@@ -122,12 +122,14 @@
 function showUpdateForm(){
     document.querySelector('.assign-person-container').style.display='block';
     document.querySelector('.load-data-student-list').style.opacity='0';
+    document.querySelector('.ipt-coordintor-dashboard-class').style.height='350px';
     //document.querySelector('.load-data-student-list').sty
 }
 
 function showDailyTasks(){
     document.querySelector('.view-daily-tasks').style.display='block';
     document.querySelector('.load-data-student-list').style.opacity='0';
+    document.querySelector('.ipt-coordintor-dashboard-class').style.height='600px';
 }
 
 function showWeeklySummary(){

@@ -10,8 +10,31 @@
 
 <center>
     <form action="/firmdepartments" method="POST" class="programmes-ajax-card-view">
+        <p class="head-main-head">Firm Departments Registration</p><br><br>
+        <div class="academic-year-status" id="academic-year-status">
+            <p>Active Academic Year: <span class="previousYear"></span>/<span class="currentYear"></span></p><br><br>
+        </div><br>
+
+        <script>
+            const currentYear=new Date();
+
+            const yearOption={weekly: 'long' , year: 'numeric'};
+
+            //
+
+            const formattedYear=currentYear.toLocaleDateString('en-US', yearOption);
+
+            //
+
+            document.querySelector('.currentYear').textContent=formattedYear;
+
+            document.querySelector('.previousYear').textContent=formattedYear-1;
+
+            //
+        </script>
+
+
         @csrf
-        <p>Firm Department Registration</p><br><br>
         <div class="side-view-left">
             <label for="">Department Name</label><br>
             <input type="text" name="department_name" id="" placeholder="Enter department name" value="{{old('department_name')}}"><br><br>
@@ -25,7 +48,7 @@
                 @foreach ($firms as $firm)
                 <option value="{{$firm->firm_name}}">{{$firm->firm_name}}</option>
                 @endforeach
-            </select><br><br>
+            </select><br><br><br>
             <button type="submit">Register</button><br><br>
         </div>
 

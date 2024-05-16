@@ -65,6 +65,11 @@ return [
             'driver' => 'session',
             'provider' => 'hrs',
         ],
+        'linkage' => [
+            'driver' => 'session',
+            'provider' => 'linkages',
+        ],
+
     ],
 
     /*
@@ -112,6 +117,10 @@ return [
         'hrs' => [
             'driver' => 'eloquent',
             'model' => App\Models\Hr::class,
+        ],
+        'linkages' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Linkage::class,
         ],
 
         // 'users' => [

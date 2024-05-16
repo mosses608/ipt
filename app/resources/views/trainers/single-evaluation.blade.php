@@ -13,7 +13,7 @@
         </div><br><br>
         <div class="academic-year-status">
             <p>Active Academic Year: <span class="previousYear"></span>/<span class="currentYear"></span></p><br>
-        </div><br>
+        </div>
 
         <table class="content-table">
 
@@ -60,7 +60,10 @@
         @endforeach
         @endforeach
     </table>
-</div>
+<br>
+    <!--<button class="close-content-displayed" onclick="closeContent()">Close</button><br><br>-->
+
+</div><br>
     <form action="/evaluations" method="POST" class="upload-evaluation-form">
         @csrf
 
@@ -172,14 +175,14 @@
                     <td>Average score</td>
                     @foreach ($evaluations as $evaluate)
                     @if ($evaluate->adm_no == $student->username)
-                    <td class="average-score">{{$evaluate->score1}}*{{$evaluate->score2}}</td>
+                    <td class="average-score">{{($evaluate->score1/10 + $evaluate->score2/10 + $evaluate->score3/10 + $evaluate->score4/10 + $evaluate->score5/10 + $evaluate->score6/10 + $evaluate->score7/10 + $evaluate->score8/10 + $evaluate->score9/10 + $evaluate->score10/10) * 10}}</td>
                     @endif
                     @endforeach
                 </tr>
             </table>
         </div><br><br><br>
         <button type="submit" class="submit-attendance">Submit</button><br><br>
-    </form>
+    </form><br><br><br>
 
 
 </center>
@@ -206,10 +209,15 @@
     }
 
     function showAEvaluationForm(){
-        document.querySelector('.upload-evaluation-form').style.display='block';
+        document.querySelector('.upload-evaluation-form').classList.toggle('activate');
         document.querySelector('.upload-evaluation-form').style.animation='slowInside 3s forwards';
         //document.querySelector('.staff-dashboard-home-pan').style.width='900px';
         document.querySelector('.content-table').style.opacity='1';
+        document.querySelector('.close-content-displayed').style.display='block';
+    }
+
+    function closeContent(){
+        location.reload();
     }
 </script>
 

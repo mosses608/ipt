@@ -42,6 +42,8 @@
     <body class="antialiased">
         <header>
             <h1>IPT MANAGEMENT PORTAL</h1>
+            <button class="message-action-module" onclick="showMessageBody()"><span style="color: #0000FF;">{{count($messages)}}</span><i class="fa fa-comment"></i></button>
+            <button class="notification-action-card" onclick="showNotificationBody()"><span style="color: #000;">{{count($completeapplications)}}</span><i class="fa fa-bell"></i></button>
             <p class="admin-profile-cont" style=" float: right; cursor:pointer;"  onclick="showAdminData()"> <img src="{{auth()->guard('hod')->user()->profile ? asset('storage/' . auth()->guard('hod')->user()->profile) : asset('/images/profile.png')}}" alt="Profile" class="profileImagex"> <span style="float: right;">{{auth()->guard('hod')->user()->full_name}} <i class="fas fa-angle-down"></i></span> </p><!-- <p style="float: right;">M</p> --><br>
             <!--<h1 class="profile-header" onclick="showhiddenfile()"><span><i class="fa fa-user"></i> {{auth()->guard('hod')->user()->full_name}}  </span></h1>-->
 
@@ -52,7 +54,7 @@
                     <a href="#" style="text-transform: uppercase;">{{auth()->guard('hod')->user()->full_name}}</a>
                     <a href="#"><i class="fas fa-user-shield"></i> HoD</a><hr><hr>
                     <a href="#"><i class="fa fa-user"></i> My Profile</a>
-                    <a href="/admin-report"><i class="fas fa-calendar-check"></i> Report</a>
+                    <a href="#"><i class="fas fa-calendar-check"></i> Report</a>
                     <button type="submit"><i class="fa fa-sign-out"></i> Logout</button>
                 </form>
             </div>
@@ -67,14 +69,121 @@
             @yield('content')
         </main>
 
+
+        <div class="notification-component-card">
+            <a href="#"><i class="fa fa-eye"></i> All Notifications</a> <a href="#" onclick="closeNotification()" style="float: right; color:red; font-size:16px; padding:10px;">&times;</a><br>
+
+            <div class="single-notification">
+
+            @foreach ($completeapplications as $apps)
+
+
+
+                @foreach ($students as $student)
+                @if ($student->username==$apps->reg_number)
+    <img src="{{$student->profile ? asset('storage/' . $student->profile) : asset('images/profile.png')}}" alt="My Profile">
+    <p><span>{{$student->full_name}}</span> applied for IPT at {{$apps->firm_name}} on {{$apps->created_at}}. <i style="color: orange;">new</i></p>
+                @endif
+
+                @endforeach
+
+
+
+
+            @endforeach
+        </div>
+        </div>
+
+
+
+        <script>
+            function showAdminData(){
+                document.querySelector('.hidden-admin-file').style.display='block';
+            }
+
+            function showNotificationBody(){
+                document.querySelector('.notification-component-card').style.display='block';
+            }
+
+            function hideContent(){
+                location.reload();
+            }
+
+            function closeNotification(){
+                location.reload();
+            }
+        </script>
+
+
+
+    <div class="message-container-parent">
+        <button onclick="hideMessageBody()" class="hideMessageBody">&times;</button>
+<br>
+        <div class="message-child-content-holder">
+            @if (count($messages) == 0)
+            <p>Message body is empty!</p>
+
+            @else
+
+            @foreach ($messages as $message)
+            <div class="sub-component-container">
+
+                <div class="profile-layout">
+                    <img src="{{$message->profile ? asset('storage/' . auth()->guard('hod')->user()->profile) : asset('images/profile.png')}}" alt="My Profile"><br>
+                    <p>Sender: {{$message->sender_name}}</p>
+                </div><br>
+                <p class="message-sent"><em style="color: #FFFFFF; padding:10px;">{{$message->message}}</em></p>
+            </div><br>
+
+            @endforeach
+            @endif
+        </div>
+        <form action="/messages" method="POST" class="message-sender-class">
+            @csrf
+            <input type="hidden" name="profile" id="" value="{{auth()->guard('hod')->user()->profile}}">
+            <button class="notification-action-card" onclick="showNotificationBody()"><span style="color: #000;">{{count($completeapplications)}}</span><i class="fa fa-bell"></i></button>
+            <input type="hidden" name="sender_name" id="" value="{{auth()->guard('hod')->user()->full_name}}">
+            <input type="text" name="message" id="" placeholder="Start a message conversation here"><button type="submit"><i class="fa fa-paper-plane"></i></button>
+        </form>
+    </div><br><br>
+
+    <script>
+        function showMessageBody(){
+            document.querySelector('.message-container-parent').style.display='block';
+            document.querySelector('.container-centered-ajax').style.opacity='0';
+            document.querySelector('.group-analytics-data').style.opacity='0';
+
+            /*document.querySelector('.message-sender-class').addEventListener('submit', function(e){
+                e.preventDefault();
+                document.querySelector('.message-child-content-holder').style.display='block';
+            });*/
+        }
+
+        function hideMessageBody(){
+            location.reload();
+        }
+    </script>
+
         <div class="image-profile-logo">
             <img src="{{asset('images/logo-profile.jpg')}}" alt="Logo Profile">
             </div>
 
 
-        <footer>
+            <center>
+                <footer>
+                    <h4>IPT Management Portal, Developed by Paschal Mbowe <em class="yearShow"></em></h4>
+                </footer>
+            </center>
 
-        </footer>
+            <script>
+                const showYear=new Date();
+
+                const yearOptions={weekly: 'long' , year: 'numeric'};
+
+                const fomartYear=showYear.toLocaleDateString('en-US',yearOptions);
+
+                document.querySelector('.yearShow').textContent=fomartYear;
+            </script>
         </div>
     </body>
 </html>

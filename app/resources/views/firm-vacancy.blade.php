@@ -10,6 +10,31 @@
 
 <center>
     <div class="firm-vacancy-admin">
+
+        <p class="head-main-head">Firm Vccancy</p><br><br>
+        <div class="academic-year-status" id="academic-year-status">
+            <p>Active Academic Year: <span class="previousYear"></span>/<span class="currentYear"></span></p><br>
+        </div><br>
+
+        <script>
+            const currentYear=new Date();
+
+            const yearOption={weekly: 'long' , year: 'numeric'};
+
+            //
+
+            const formattedYear=currentYear.toLocaleDateString('en-US', yearOption);
+
+            //
+
+            document.querySelector('.currentYear').textContent=formattedYear;
+
+            document.querySelector('.previousYear').textContent=formattedYear-1;
+
+            //
+        </script>
+
+
         <form action="/vacancies" method="POST" class="vacancy-container">
             @csrf
             <p>Vacancy Registration Form</p><br><br>

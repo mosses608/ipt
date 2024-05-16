@@ -47,13 +47,13 @@
                     <td>{{$student->supervisor}}</td>
 
                     @else
-                    <td style="color: #0000FF; cursor:pointer; font-size:14px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Not Assigned</td>
+                    <td style="color: #0000FF; cursor:pointer; font-size:11px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Not Assigned</td>
                     @endif
 
-                    @foreach ($compeleteapplications as $apps)
-                    @if ($apps->reg_number == $student->username)
+                    @foreach ($completeapplications as $app)
+                    @if ($app->reg_number == $student->username)
 
-                    <td>{{$apps->firm_name}}</td>
+                    <td>{{$app->firm_name}}</td>
 
                     @endif
                     @endforeach
@@ -71,17 +71,15 @@
 
         </div>
 
-        <div class="paginate-link-complexer">
-            {{$students->links()}}
-        </div>
+
 
     </div>
 
-    <div class="search-single-lg">
+    <!--<div class="search-single-lg">
         <form action="/ipt/student-listing" method="GET">
             <input type="text" name="search" id="" placeholder="Search about student or supervisor"> <button type="submit"><i class="fas fa-search"></i></button>
         </form>
-    </div>
+    </div>-->
 
 </center>
 

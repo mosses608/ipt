@@ -16,7 +16,7 @@
         @foreach ($feedbacks as $feedback)
 
         <div class="view-feedbacks-dashboard-clas">
-            <p>{{$feedback->feedback}} <span style="color: orange; font-size:14px;">{{$feedback->created_at}}</span></p><br>
+            <p>{{$feedback->feedback}} <span style="color: orange; font-size:12px;">{{$feedback->created_at}}</span></p><br><br><br>
         </div>
 
         @endforeach

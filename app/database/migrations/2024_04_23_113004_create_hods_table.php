@@ -20,6 +20,7 @@ class CreateHodsTable extends Migration
             $table->string('phone');
             $table->string('employee_id');
             $table->string('college');
+            $table->string('department');
             $table->string('username');
             $table->string('password');
             $table->string('profile');

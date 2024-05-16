@@ -12,12 +12,28 @@
 <center>
     <div class="left-side-pane">
 
-        <div class="min-object-cont">
-            <br>
-        <p>My Profile</p>
-        <p><a href="/admin_dashboard">Dashboard</a> / <a href="/admin-profile">Profile</a></p><br>
-    </div>
-    <br><br><br><br>
+    <p class="head-main-head">My Profile / {{Auth::user()->full_name}}</p><br><br>
+        <div class="academic-year-status" id="academic-year-status">
+            <p>Active Academic Year: <span class="previousYear"></span>/<span class="currentYear"></span></p><br>
+        </div><br>
+
+        <script>
+            const currentYear=new Date();
+
+            const yearOption={weekly: 'long' , year: 'numeric'};
+
+            //
+
+            const formattedYear=currentYear.toLocaleDateString('en-US', yearOption);
+
+            //
+
+            document.querySelector('.currentYear').textContent=formattedYear;
+
+            document.querySelector('.previousYear').textContent=formattedYear-1;
+
+            //
+        </script>
 
         <div class="left-container-block-side">
             <img src="{{auth()->user()->profile ? asset('storage/' . auth()->user()->profile) : asset('images/profile.png')}}" alt="Profile Image">

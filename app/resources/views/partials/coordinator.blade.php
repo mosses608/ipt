@@ -22,7 +22,9 @@
  IPT Instructors <i class="fas fa-angle-down"></i>
 </a></a>
     <div class="ajax-course-mgt mt-10 p-10">
+        <a href="/ipt/vaccancy"><i class="fas fa-chevron-right"></i> IPT Vaccancies</a>
         <a href="/ipt/instructors"><i class="fas fa-chevron-right"></i> IPT Instructors List</a>
+        <a href="/ipt/assign-instructor"><i class="fas fa-chevron-right"></i> Assign IPT Instructors</a>
     </div>
 
 

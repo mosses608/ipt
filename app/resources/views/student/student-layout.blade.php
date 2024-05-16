@@ -40,8 +40,9 @@
     <body class="antialiased">
         <header>
             <h1>IPT MANAGEMENT PORTAL</h1>
-            <p class="message-component"  onclick="showMessageContainerBody()"><span style="color: blue;">{{count($messages)}}</span><i class="fas fa-comment"></i>
-            </p>
+            <button class="message-action-module" onclick="showMessageContainerBody()"><span style="color: #000;">{{count($studentmessages)}}</span><i class="fas fa-comment"></i>
+            </button>
+            <button class="notification-action-card" onclick="showNotificationBody()"><span style="color: #000;">{{count($completeapplications)}}</span><i class="fa fa-bell"></i></button>
             <div class="message-container" onclick="showMyProfile()">
                 <p><img src="{{auth()->guard('student')->user()->profile ? asset('storage/' . auth()->guard('student')->user()->profile) : asset('images/profile.png')}}" alt=""><span class="profile-component" style="color: #000;">{{auth()->guard('student')->user()->full_name}}</span></p>
             </div>
@@ -51,7 +52,7 @@
                 <form action="/signout" method="POST" class="sign-out">
                     <a href="#"> {{auth()->guard('student')->user()->full_name}}</a>
                     <a href="#"><i class="fas fa-graduation-cap"></i> Student</a><hr><hr>
-                    <a href="/admin-profile"><i class="fa fa-graduation-cap"></i> My Profile</a>
+                    <a href="#"><i class="fa fa-graduation-cap"></i> My Profile</a>
                     <button type="submit"><i class="fa fa-sign-out"></i> Logout</button>
                 </form>
             </div>
@@ -67,27 +68,73 @@
         </main>
 
 
+
+        <div class="notification-component-card">
+            <a href="#"><i class="fa fa-eye"></i> All Notifications</a> <a href="#" onclick="closeNotification()" style="float: right; color:red; font-size:16px; padding:10px;">&times;</a><br>
+
+            <div class="single-notification">
+
+            @foreach ($completeapplications as $apps)
+
+
+
+                @foreach ($students as $student)
+                @if ($student->username==$apps->reg_number)
+    <img src="{{$student->profile ? asset('storage/' . $student->profile) : asset('images/profile.png')}}" alt="My Profile">
+    <p><span>{{$student->full_name}}</span> applied for IPT at {{$apps->firm_name}} on {{$apps->created_at}}. <i style="color: orange;">new</i></p>
+                @endif
+
+                @endforeach
+
+
+
+
+            @endforeach
+        </div>
+        </div>
+
+
+
+        <script>
+            function showAdminData(){
+                document.querySelector('.hidden-admin-file').style.display='block';
+            }
+
+            function showNotificationBody(){
+                document.querySelector('.notification-component-card').style.display='block';
+            }
+
+            function hideContent(){
+                location.reload();
+            }
+
+            function closeNotification(){
+                location.reload();
+            }
+        </script>
+
+
     <div class="message-container-parent">
         <button onclick="hideMessageBody()" class="hideMessageBody">&times;</button>
 <br>
         <div class="message-child-content-holder">
-            @if (count($messages) == 0)
+            @if (count($studentmessages) == 0)
             <p>Message body is empty!</p>
 
             @else
 
-            @foreach ($messages as $message)
+            @foreach ($studentmessages as $message)
             <div class="sub-component-container">
                 <div class="profile-layout">
                     <img src="{{$message->profile ? asset('storage/' . $message->profile) : asset('images/profile.png')}}" alt="My Profile"><br>
                     <p>Student: {{$message->sender_name}}</p>
                 </div><br>
-                <p class="message-sent"><em style="color: #FFFFFF; padding:10px;">{{$message->message}}</em> <br><span style="color: pink; font-size:10px; float:right;">{{$message->created_at}}</span></p>
+                <p class="message-sent"><em style="color: #FFFFFF; padding:5px;">{{$message->message}}</em> <br> <span style="color: pink; font-size:10px;">{{$message->created_at}}</span></p>
             </div><br>
             @endforeach
             @endif
         </div>
-        <form action="/messages" method="POST" class="message-sender-class">
+        <form action="/studentmessages" method="POST" class="message-sender-class">
             @csrf
             <input type="hidden" name="profile" id="" value="{{auth()->guard('student')->user()->profile}}">
             <input type="hidden" name="sender_name" id="" value="{{auth()->guard('student')->user()->full_name}}">
@@ -115,6 +162,22 @@
         <div class="image-profile-logo">
             <img src="{{asset('images/logo-profile.jpg')}}" alt="Logo Profile">
             </div>
+
+            <center>
+                <footer>
+                    <h4>IPT Management Portal, Developed by Paschal Mbowe <em class="yearShow"></em></h4>
+                </footer>
+            </center>
+
+            <script>
+                const showYear=new Date();
+
+                const yearOptions={weekly: 'long' , year: 'numeric'};
+
+                const fomartYear=showYear.toLocaleDateString('en-US',yearOptions);
+
+                document.querySelector('.yearShow').textContent=fomartYear;
+            </script>
         </div>
     </body>
 </html>

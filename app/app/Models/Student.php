@@ -98,6 +98,21 @@ class Student extends Model implements Authenticatable
         }
     }
 
+    public static function progress($id){
+        $students=self::all();
+
+        foreach($students as $student){
+            if($student['id'] == $id){
+                return $student;
+            }
+        }
+    }
+
+    public function evaluations()
+    {
+        return $this->hasMany(Evaluation::class);
+    }
+
     protected $guard = 'student';
 
     public function setPasswordAttribute($value)

@@ -122,27 +122,36 @@
                         <tr>
                             <th>Firm Name</th><th>Firm Department</th><th>Male</th><th>Female</th><th>Pick</th>
                         </tr>
+
+
+                        @foreach ($applications as $application)
+
+
                         <tr>
-                            @foreach ($applications as $application)
+
+                            @foreach ($vacancies as $vacancy)
+                            @endforeach
 
                             @if ($application->reg_no == auth()->guard('student')->user()->username)
-                            <td>{{$application->firm_name}}</td>
+
                             <input type="hidden" name="firm_name" id="" value="{{$application->firm_name}}, {{$application->firm_location}}">
                             <input type="hidden" name="academic_year" id="" value="{{$application->academic_year}}">
                             @endif
 
-                            @foreach ($vacancies as $vacancy)
+
                             @if ($application->firm_name == $vacancy->firm_name && $application->reg_no==auth()->guard('student')->user()->username)
+                            <td>{{$vacancy->firm_name}}</td>
                             <td>{{$vacancy->department}}</td>
                             <td>{{$vacancy->maleValue}}</td>
                             <td>{{$vacancy->femaleValue}}</td>
                             <td><input type="radio" name="action" id="" value="Applied"></td>
                             @endif
-                            @endforeach
 
-                            @endforeach
+
+
 
                         </tr>
+                        @endforeach
                     </table>
                 </div><br> <button type="submit" class="submit-edi-button">Submit Application</button>
                 <br><br>

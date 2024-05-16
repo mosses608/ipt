@@ -33,4 +33,10 @@ class Evaluation extends Model
         'score9',
         'score10',
     ];
+
+    public function student()
+    {
+        return $this->belongsTo(Student::class);
+    }
+
 }

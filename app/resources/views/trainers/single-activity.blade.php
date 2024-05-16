@@ -53,9 +53,15 @@
 
     </table>
 
+    <button class="close-content-displayed" onclick="closeContent()">Close</button><br><br>
+<br>
 
 
     <div class="view-daily-tasks">
+
+        @if(count($activities) == 0)
+        <p>No daily activity submitted today</p>
+        @endif
         @foreach ($activities as $activity)
         @if ($activity->reg_number == $student->username)
         <p>In this day {{$activity->submit_day}} I conducted {{$activity->nu_activities}} activity(s) </p><br>
@@ -86,6 +92,11 @@
     </div>
 
     <div class="view-weekly-summary-class-con">
+
+        @if(count($summaries) == 0)
+        <p>No daily weekly summary submitted on this week</p>
+        @endif
+
         @foreach ($summaries as $summary)
         @if ($summary->reg_number == $student->username)
 
@@ -119,21 +130,28 @@
             document.querySelector('.view-daily-tasks').style.display='block';
             document.querySelector('.table-data-content').style.opacity='0';
             document.querySelector('.staff-dashboard-home-pan').style.height='400px';
+            document.querySelector('.close-content-displayed').style.display='block';
         }
 
         function showWeeklySummary(){
             document.querySelector('.view-weekly-summary-class-con').style.display='block';
             document.querySelector('.table-data-content').style.opacity='0';
             document.querySelector('.staff-dashboard-home-pan').style.height='600px';
+            document.querySelector('.close-content-displayed').style.display='block';
         }
 
         function showPermissionData(){
             document.querySelector('.permission-form-data-uplo').style.display='block';
             document.querySelector('.table-data-content').style.opacity='0';
             document.querySelector('.staff-dashboard-home-pan').style.height='600px';
+            document.querySelector('.close-content-displayed').style.display='block';
+        }
+
+        function closeContent(){
+            location.reload();
         }
                 </script>
-
+                <br>
 </div>
 
 </center>

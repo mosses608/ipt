@@ -30,6 +30,7 @@ class Hod extends Model implements Authenticatable
         'phone',
         'employee_id',
         'college',
+        'department',
         'username',
         'password',
         'profile',
@@ -37,6 +38,15 @@ class Hod extends Model implements Authenticatable
 
     protected $guard = 'hod';
 
+    public static function find($id){
+        $hods = self::all();
+
+        foreach($hods as $staff){
+            if($staff['id'] == $id){
+                return $staff;
+            }
+        }
+    }
 
 
     public function setPasswordAttribute($value)
